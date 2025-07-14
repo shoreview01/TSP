@@ -1,14 +1,19 @@
 import numpy as np
+import time
+from itertools import permutations
+from itertools import combinations
 
-class TSPMaxSum:
-    def __init__(self, s, damp=0.4, t_max=1000, t_conv=5, verbose=False):
+class TSPMaxSum_with_Hypercube:
+    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
         self.s_original = s
-        self.s = np.max(s) - s  # Convert to similarity
-        self.N = self.s.shape[0] - 1  # Exclude depot
         self.damp = damp
         self.t_max = t_max
         self.t_conv = t_conv
         self.verbose = verbose
+        similarity = np.max(s) - s  # Convert to similarity
+        self.N = self.s_original.shape[0] - 1  # Exclude depot
+        self.s = np.stack([similarity] * self.N, axis=0)  # shape (t, N, N)
+        self.penalty = -1 
 
         # Initialize messages
         N = self.N
@@ -19,6 +24,15 @@ class TSPMaxSum:
         self.delta = np.zeros((N - 1, N))
         self.lambda_ = np.zeros((N, N))
         self.c = np.zeros(N, dtype=int)
+        
+        # 노드를 Hamming weight별로 그룹화
+        self.nodes_by_weight = [[] for _ in range(self.N+1)]
+        for i in range(2**self.N):
+            w = bin(i).count('1')
+            self.nodes_by_weight[w].append(i)
+        self.nodes_by_weight = [np.array(group) for group in self.nodes_by_weight]
+        print(self.nodes_by_weight)
+
 
     def run(self):
         iter_conv_check = 0
@@ -28,7 +42,9 @@ class TSPMaxSum:
 
         while iter <= self.t_max:
             c_old = self.c.copy()
-
+            print(f"Iteration {iter} started...")
+            print(s)
+            
             # phi update
             for t in range(N):
                 for i in range(N):
@@ -46,7 +62,7 @@ class TSPMaxSum:
             for t in range(N - 1):
                 for m in range(N):
                     if t == 0:
-                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + s[N, m]) * (1 - self.damp)
+                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + s[0, N, m]) * (1 - self.damp)
                     else:
                         self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + self.delta[t - 1, m]) * (1 - self.damp)
 
@@ -54,7 +70,7 @@ class TSPMaxSum:
             for t in range(N - 1):
                 for m in range(N):
                     self.delta[t, m] = self.delta[t, m] * self.damp + max(
-                        [self.beta[t, m_prime] + s[m_prime, m] for m_prime in range(N) if m_prime != m]) * (1 - self.damp)
+                        [self.beta[t, m_prime] + s[t, m_prime, m] for m_prime in range(N) if m_prime != m]) * (1 - self.damp)
 
             # lambda update
             for t in range(N):
@@ -65,15 +81,15 @@ class TSPMaxSum:
             for t in range(N):
                 for m in range(N):
                     if t == 0:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + s[N, m] * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + s[t, N, m] * (1 - self.damp)
                     elif t == N - 1:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + s[m, N]) * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + s[t, m, N]) * (1 - self.damp)
                     else:
                         self.zeta[t, m] = self.zeta[t, m] * self.damp + self.delta[t - 1, m] * (1 - self.damp)
 
             # c estimate
-            self.c[0] = np.argmax([self.lambda_[0, m] + s[N, m] for m in range(N)])
-            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + s[m, N] for m in range(N)])
+            self.c[0] = np.argmax([self.lambda_[0, m] + s[0, N, m] for m in range(N)])
+            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + s[N-1, m, N] for m in range(N)])
             for t in range(1, N - 1):
                 self.c[t] = np.argmax([self.lambda_[t, m] + self.delta[t - 1, m] for m in range(N)])
 
@@ -90,7 +106,10 @@ class TSPMaxSum:
                     break
             else:
                 iter_conv_check = 0
-
+            
+            # Update similarity matrix based on current path
+            s = self.s_update_by_trellis(s, self.c, self.N, self.nodes_by_weight)
+            
             iter += 1
 
         self.iterations = iter
@@ -108,40 +127,48 @@ class TSPMaxSum:
     def get_cost(self):
         path = self.get_path()
         return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
+    
+    def s_update_by_trellis(self, s, c, N, nodes_by_weight):
 
-
-# Example usage
-s = np.array([
-    [0.8, 10.1, 12.5, 0.1, 0.6],
-    [0.9, 0.2, 0.9, 0.4, 0.1],
-    [0.1, 0.5, 0.9, 0.9, 0.8],
-    [0.9, 0.9, 0.5, 0.8, 0.9],
-    [0.6, 0.009, 1.8, 0.9, 0.6]
-])
-
-solver = TSPMaxSum(s, verbose=True)
-path = solver.run()
-print("Optimal path:", path)
-print("Optimal cost:", solver.get_cost())
-print("Number of iterations:", solver.iterations)
-
-from itertools import permutations
-
-def brute_force_tsp(s):
-    N = s.shape[0]-1  # last city is depot
-    cities = list(range(N))
-    depot = N
-    best_cost = float('inf')
-    best_path = None
-
-    for perm in permutations(cities):
-        path = [depot] + list(perm) + [depot]
-        cost = sum(s[path[i], path[i+1]] for i in range(len(path)-1))
-        if cost < best_cost:
-            best_cost = cost
-            best_path = path
-
-    return best_path, best_cost
-best_path, best_cost = brute_force_tsp(s)
-print("Brute force optimal path:", [best_path[i] + 1 for i in range(len(best_path))])  # Convert to 1-based indexing
-print("Brute force optimal cost:", best_cost)
+        # Update the similarity matrix based on the current path c
+        availablity_front = np.ones(N)
+        availablity_back = np.ones(N)
+        bin_path = np.zeros(N, dtype=int)
+        temp = 0
+        for i in range(N):
+            if i > 0 and c[i] == c[i - 1]:
+                temp = temp
+            else:
+                temp += 1 << c[i]
+            bin_path[i] = temp
+            
+        for t in range(N-1):
+            state_from = bin_path[t]
+            state_to = bin_path[t + 1]
+            
+            level_nodes = nodes_by_weight[t]
+            next_level_nodes = nodes_by_weight[t + 1]
+            
+            if state_from not in level_nodes or state_to not in next_level_nodes:
+                availablity_front[t+1] = self.penalty
+                break
+        
+        for t in range(N-1):
+            state_from = bin_path[N-2 - t]
+            state_to = bin_path[N-1 - t]
+            
+            level_nodes = nodes_by_weight[N-2 - t]
+            next_level_nodes = nodes_by_weight[N-1 - t]
+            
+            if state_from not in level_nodes or state_to not in next_level_nodes:
+                availablity_back[N-2 - t] = self.penalty
+                break
+            
+        # Update the similarity matrix based on the availability
+        for t in range(N-2):
+            if availablity_front[t + 1] == self.penalty:
+                s[t + 1, c[t + 1], c[t + 2]] = availablity_front[t + 1]
+            '''if availablity_back[N - 2 - t] == self.penalty:
+                s[N - 2 - t, c[N - 2 - t], c[N - 1 - t]] = availablity_back[N - 2 - t]'''
+            
+        return s
