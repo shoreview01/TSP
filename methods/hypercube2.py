@@ -10,8 +10,31 @@ class TSPHC2:
         similarity = np.max(s) - s  # Convert to similarity
         self.N = self.s_original.shape[0] - 1  # Exclude depot
         self.s = similarity.copy()  # shape (N, N)
-        self.similarity_by_trellis = np.zeros((self.N, 2**self.N, self.N, self.N))  # Trellis info for each node
-        self.penalty = -1 
+        self.penalty = np.min(s) 
+
+                
+        # 노드를 Hamming weight별로 그룹화
+        self.hypercube = [[] for _ in range(self.N+1)]
+        for i in range(2**self.N):
+            w = bin(i).count('1')
+            self.hypercube[w].append(i)
+        self.hypercube = [np.array(group) for group in self.hypercube]
+        
+        self.similarity_by_trellis = np.zeros((self.N+1, self.N+1, 2**self.N, 1))  # Trellis info for each node
+        for m_prime in range(1, self.N+2):
+            for m in range(1, self.N+2):
+                for h in range(2**self.N):
+                    t = bin(h).count('1')
+                    current_binary = h
+                    next_binary = current_binary + 2**(m-1) if m != m_prime else current_binary
+                    if t == self.N:
+                        if m_prime != self.N+1:
+                            self.similarity_by_trellis[m_prime-1, m-1, h, 0] = similarity[m_prime-1, m-1]
+                        continue
+                    elif current_binary in self.hypercube[t] and next_binary in self.hypercube[t+1]:
+                        self.similarity_by_trellis[m_prime-1, m-1, h, 0] = similarity[m_prime-1, m-1]
+                    else:
+                        self.similarity_by_trellis[m_prime-1, m-1, h, 0] = self.penalty
 
         # Initialize messages
         N = self.N
@@ -22,28 +45,18 @@ class TSPHC2:
         self.delta = np.zeros((N - 1, N))
         self.lambda_ = np.zeros((N, N))
         self.c = np.zeros(N, dtype=int)
-        
-        # 노드를 Hamming weight별로 그룹화
-        self.nodes_by_weight = [[] for _ in range(self.N+1)]
-        for i in range(2**self.N):
-            w = bin(i).count('1')
-            self.nodes_by_weight[w].append(i)
-        self.nodes_by_weight = [np.array(group) for group in self.nodes_by_weight]
-        print(self.nodes_by_weight)
 
 
     def run(self):
+
         iter_conv_check = 0
         iter = 1
         N = self.N
-        s = self.s
-        city_to_binary = city_to_binary(N, self.c)
-        s_Trellis = self.similarity_by_trellis(N, city_to_binary)
+        s = self.similarity_by_trellis
 
         while iter <= self.t_max:
             c_old = self.c.copy()
-            print(f"Iteration {iter} started...")
-            print(s)
+            c_to_binary = self.c_to_binary(c_old)
             
             # phi update
             for t in range(N):
@@ -62,7 +75,7 @@ class TSPHC2:
             for t in range(N - 1):
                 for m in range(N):
                     if t == 0:
-                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + s[0, N, m]) * (1 - self.damp)
+                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + s[N, m, 0, 0]) * (1 - self.damp)
                     else:
                         self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + self.delta[t - 1, m]) * (1 - self.damp)
 
@@ -70,7 +83,7 @@ class TSPHC2:
             for t in range(N - 1):
                 for m in range(N):
                     self.delta[t, m] = self.delta[t, m] * self.damp + max(
-                        [self.beta[t, m_prime] + s[t, m_prime, m] for m_prime in range(N) if m_prime != m]) * (1 - self.damp)
+                        [self.beta[t, m_prime] + s[m_prime, m, c_to_binary[t], 0] for m_prime in range(N) if m_prime != m]) * (1 - self.damp)
 
             # lambda update
             for t in range(N):
@@ -81,15 +94,15 @@ class TSPHC2:
             for t in range(N):
                 for m in range(N):
                     if t == 0:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + s[t, N, m] * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + s[N, m, 0, 0] * (1 - self.damp)
                     elif t == N - 1:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + s[t, m, N]) * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + s[m, N, c_to_binary[t], 0]) * (1 - self.damp)
                     else:
                         self.zeta[t, m] = self.zeta[t, m] * self.damp + self.delta[t - 1, m] * (1 - self.damp)
 
             # c estimate
-            self.c[0] = np.argmax([self.lambda_[0, m] + s[0, N, m] for m in range(N)])
-            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + s[N-1, m, N] for m in range(N)])
+            self.c[0] = np.argmax([self.lambda_[0, m] + s[N, m, 0, 0] for m in range(N)])
+            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + s[m, N, c_to_binary[N-1], 0] for m in range(N)])
             for t in range(1, N - 1):
                 self.c[t] = np.argmax([self.lambda_[t, m] + self.delta[t - 1, m] for m in range(N)])
 
@@ -107,17 +120,7 @@ class TSPHC2:
             else:
                 iter_conv_check = 0
             
-            bin_path = np.zeros(N, dtype=int)
-            temp = 0
-            for i in range(N):
-                if i > 0 and self.c[i] == self.c[i - 1]:
-                    temp = temp
-                else:
-                    temp += 1 << self.c[i]
-                bin_path[i] = temp
-            
-            # Update similarity matrix based on current path
-            s = self.s_update_by_trellis(s, self.c, self.N, self.nodes_by_weight)
+            c_to_binary = self.c_to_binary(self.c)
             
             iter += 1
 
@@ -137,47 +140,10 @@ class TSPHC2:
         path = self.get_path()
         return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
     
-    def s_update_by_trellis(self, s, c, N, nodes_by_weight):
-
-        # Update the similarity matrix based on the current path c
-        availablity_front = np.ones(N)
-        availablity_back = np.ones(N)
-        bin_path = np.zeros(N, dtype=int)
-        temp = 0
-        for i in range(N):
-            if i > 0 and c[i] == c[i - 1]:
-                temp = temp
-            else:
-                temp += 1 << c[i]
-            bin_path[i] = temp
-            
-        for t in range(N-1):
-            state_from = bin_path[t]
-            state_to = bin_path[t + 1]
-            
-            level_nodes = nodes_by_weight[t]
-            next_level_nodes = nodes_by_weight[t + 1]
-            
-            if state_from not in level_nodes or state_to not in next_level_nodes:
-                availablity_front[t+1] = self.penalty
-                break
-        
-        for t in range(N-1):
-            state_from = bin_path[N-2 - t]
-            state_to = bin_path[N-1 - t]
-            
-            level_nodes = nodes_by_weight[N-2 - t]
-            next_level_nodes = nodes_by_weight[N-1 - t]
-            
-            if state_from not in level_nodes or state_to not in next_level_nodes:
-                availablity_back[N-2 - t] = self.penalty
-                break
-            
-        # Update the similarity matrix based on the availability
-        for t in range(N-2):
-            if availablity_front[t + 1] == self.penalty:
-                s[t + 1, c[t + 1], c[t + 2]] = availablity_front[t + 1]
-            '''if availablity_back[N - 2 - t] == self.penalty:
-                s[N - 2 - t, c[N - 2 - t], c[N - 1 - t]] = availablity_back[N - 2 - t]'''
-            
-        return s
+    def c_to_binary(self, c):
+        bin_path = np.zeros(self.N, dtype=int)
+        visited = 0
+        for i in range(self.N):
+            visited |= (1 << c[i])
+            bin_path[i] = visited
+        return bin_path

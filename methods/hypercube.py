@@ -1,6 +1,6 @@
 import numpy as np
 
-class TSPMaxSum_with_Hypercube:
+class TSPHC1:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
         self.s_original = s
         self.damp = damp
@@ -28,7 +28,6 @@ class TSPMaxSum_with_Hypercube:
             w = bin(i).count('1')
             self.nodes_by_weight[w].append(i)
         self.nodes_by_weight = [np.array(group) for group in self.nodes_by_weight]
-        print(self.nodes_by_weight)
 
 
     def run(self):
@@ -39,8 +38,6 @@ class TSPMaxSum_with_Hypercube:
 
         while iter <= self.t_max:
             c_old = self.c.copy()
-            print(f"Iteration {iter} started...")
-            print(s)
             
             # phi update
             for t in range(N):
@@ -132,7 +129,10 @@ class TSPMaxSum_with_Hypercube:
 
     def get_cost(self):
         path = self.get_path()
-        return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
+        if np.sum(path) != ((self.N+1) * (self.N + 2) / 2 + self.N+1):
+            return np.inf  # Return infinity if path does not match expected value
+        else:
+            return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
     
     def s_update_by_trellis(self, s, c, N, nodes_by_weight):
 

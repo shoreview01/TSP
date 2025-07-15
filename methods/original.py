@@ -1,9 +1,7 @@
 import numpy as np
-import time
-from itertools import permutations
 
 class TSPMaxSum:
-    def __init__(self, s, damp=0.4, t_max=1000, t_conv=5, verbose=False):
+    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
         self.s_original = s
         self.damp = damp
         self.t_max = t_max
@@ -110,5 +108,8 @@ class TSPMaxSum:
 
     def get_cost(self):
         path = self.get_path()
-        return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
+        if np.sum(path) != ((self.N+1) * (self.N + 2) / 2 + self.N+1):
+            return np.inf  # Return infinity if path does not match expected value
+        else:
+            return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
 

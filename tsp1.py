@@ -1,6 +1,5 @@
 import numpy as np
 import time
-from itertools import permutations
 from methods.original import TSPMaxSum
 from methods.brute_force import TSP_brute_force
 
