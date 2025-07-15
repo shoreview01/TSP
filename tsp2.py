@@ -6,7 +6,7 @@ from methods.hypercube2 import TSPHC2
 from methods.brute_force import TSP_brute_force
 
 # Example usage
-'''s = np.array([
+s1 = np.array([
     [0.8,   10.1,  12.5,  0.1,  0.6,   8.4,  9.1],
     [0.9,   0.2,   0.9,   0.4,  0.1,   7.8,  6.5],
     [0.1,   0.5,   0.9,   0.9,  0.8,   5.7,  4.9],
@@ -14,27 +14,30 @@ from methods.brute_force import TSP_brute_force
     [0.6,   0.009, 1.8,   0.9,  0.6,   8.3,  6.8],
     [7.7,   6.9,   5.5,   7.2,  8.1,   0.3,  1.2],
     [9.0,   7.8,   5.1,   6.6,  8.9,   1.1,  0.4]
-])'''
-'''s = np.array([
+])
+s2 = np.array([
     [0.8, 10.1, 12.5, 0.1, 0.6],
     [0.9, 0.2, 0.9, 0.4, 0.1],
     [0.1, 0.5, 0.9, 0.9, 0.8],
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
-])'''
+])
+s_size = 5
+s3 = np.random.uniform(0, 10, size=(s_size, s_size))
 
+verbose = False
 win = [0, 0, 0]
-s_size = 10
-banbok = 10
+banbok = 1 # Number of iterations for testing
 
 for i in range(banbok):
-    s = np.random.uniform(0, 2, size=(s_size, s_size))
-    print(s)
+    s = s1
+    s_size = s.shape[0]
+    print("s matrix : \n", s)
 
     print("\n" + "="*40 + "\n")
 
     # TSP solver using the original method
-    solver = TSPMaxSum(s, verbose=False)
+    solver = TSPMaxSum(s, verbose=verbose)
     start_time = time.time()
     path = solver.run()
     end_time = time.time()
@@ -52,7 +55,7 @@ for i in range(banbok):
 
     # Using the original hypercube method
     start_time = time.time()
-    solver1 = TSPHC1(s, verbose=False)
+    solver1 = TSPHC1(s, verbose=verbose)
     path1 = solver1.run()
     end_time = time.time()
     print(f"Time taken (hypercube1): {end_time - start_time:.4f} seconds")
@@ -67,7 +70,7 @@ for i in range(banbok):
 
     # Using the new hypercube method
     start_time = time.time()
-    solver2 = TSPHC2(s, verbose=False)
+    solver2 = TSPHC2(s, verbose=verbose)
     path2 = solver2.run()
     end_time = time.time()
     print(f"Time taken (hypercube2): {end_time - start_time:.4f} seconds")
