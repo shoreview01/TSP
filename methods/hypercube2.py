@@ -120,8 +120,6 @@ class TSPHC2:
             else:
                 iter_conv_check = 0
             
-            c_to_binary = self.c_to_binary(self.c)
-            
             iter += 1
 
         self.iterations = iter
