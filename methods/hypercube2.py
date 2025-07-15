@@ -1,6 +1,6 @@
 import numpy as np
 
-class TSPMaxSum_with_Hypercube:
+class TSPHC2:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
         self.s_original = s
         self.damp = damp
@@ -9,7 +9,8 @@ class TSPMaxSum_with_Hypercube:
         self.verbose = verbose
         similarity = np.max(s) - s  # Convert to similarity
         self.N = self.s_original.shape[0] - 1  # Exclude depot
-        self.s = np.stack([similarity] * self.N, axis=0)  # shape (t, N, N)
+        self.s = similarity.copy()  # shape (N, N)
+        self.similarity_by_trellis = np.zeros((self.N, 2**self.N, self.N, self.N))  # Trellis info for each node
         self.penalty = -1 
 
         # Initialize messages
@@ -36,6 +37,8 @@ class TSPMaxSum_with_Hypercube:
         iter = 1
         N = self.N
         s = self.s
+        city_to_binary = city_to_binary(N, self.c)
+        s_Trellis = self.similarity_by_trellis(N, city_to_binary)
 
         while iter <= self.t_max:
             c_old = self.c.copy()

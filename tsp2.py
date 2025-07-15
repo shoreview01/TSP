@@ -2,7 +2,7 @@ import numpy as np
 import time
 from methods.hypercube import TSPMaxSum_with_Hypercube
 from methods.brute_force import TSP_brute_force
-
+from methods.hypercube2 import TSPHC2
 
 # Example usage
 s = np.array([
@@ -21,8 +21,10 @@ s = np.array([
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
 ])
-np.random.seed(2)  # 결과 재현 가능하게
-s = np.random.uniform(0, 20, size=(15, 15))
+'''np.random.seed(2)  # 결과 재현 가능하게
+s = np.random.uniform(0, 20, size=(15, 15))'''
+
+np.fill_diagonal(s, 30)
 
 solver = TSPMaxSum_with_Hypercube(s, verbose=True)
 start_time = time.time()
