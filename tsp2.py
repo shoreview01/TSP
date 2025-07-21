@@ -22,7 +22,7 @@ s2 = np.array([
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
 ])
-s_size = 5
+s_size = 11
 s3 = np.random.uniform(0, 10, size=(s_size, s_size))
 
 verbose = False
@@ -30,7 +30,7 @@ win = [0, 0, 0]
 banbok = 1 # Number of iterations for testing
 
 for i in range(banbok):
-    s = s1
+    s = s2
     s_size = s.shape[0]
     print("s matrix : \n", s)
 

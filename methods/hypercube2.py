@@ -10,7 +10,7 @@ class TSPHC2:
         similarity = np.max(s) - s  # Convert to similarity
         self.N = self.s_original.shape[0] - 1  # Exclude depot
         self.s = similarity.copy()  # shape (N, N)
-        self.penalty = np.min(s) 
+        self.penalty = 0#np.min(s) 
 
                 
         # 노드를 Hamming weight별로 그룹화
