@@ -31,7 +31,7 @@ win = [0, 0, 0]
 banbok = 1 # Number of iterations for testing
 
 for i in range(banbok):
-    s = s1
+    s = s3
     s_size = s.shape[0]
     print("s matrix : \n", s)
 
