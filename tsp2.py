@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import matplotlib.pyplot as plt
 from methods.original import TSPMaxSum
 from methods.hypercube import TSPHC1
 from methods.hypercube2 import TSPHC2
@@ -30,7 +31,7 @@ win = [0, 0, 0]
 banbok = 1 # Number of iterations for testing
 
 for i in range(banbok):
-    s = s2
+    s = s1
     s_size = s.shape[0]
     print("s matrix : \n", s)
 
@@ -39,16 +40,17 @@ for i in range(banbok):
     # TSP solver using the original method
     solver = TSPMaxSum(s, verbose=verbose)
     start_time = time.time()
-    path = solver.run()
+    path, history = solver.run()
     end_time = time.time()
     print(f"Time taken (original): {end_time - start_time:.4f} seconds")
     print("Optimal path (original):", path)
-    print(f"Optimal cost (original): {solver.get_cost():.1f}")
+    solver_cost = solver.get_cost(end=True)
+    print(f"Optimal cost (original): {solver_cost:.1f}")
     print("Number of iterations (original):", solver.iterations)
     sum = np.sum(path)
     if sum != (s_size * (s_size + 1)/2 + s_size):
         print("Warning: The path does not make sense.")
-        
+    print("Convergence history (original):", [f"{x:.1f}" for x in history])
     print("\n" + "="*40 + "\n")
 
     # Using the hypercube method
@@ -56,22 +58,24 @@ for i in range(banbok):
     # Using the original hypercube method
     start_time = time.time()
     solver1 = TSPHC1(s, verbose=verbose)
-    path1 = solver1.run()
+    path1, history1 = solver1.run()
     end_time = time.time()
     print(f"Time taken (hypercube1): {end_time - start_time:.4f} seconds")
     print("Optimal path (hypercube1):", path1)
-    print(f"Optimal cost (hypercube1): {solver1.get_cost():.1f}")
+    solver1_cost = solver1.get_cost(end=True)
+    print(f"Optimal cost (hypercube1): {solver1_cost:.1f}")
     print("Number of iterations (hypercube1):", solver1.iterations)
     sum = np.sum(path1)
     if sum != (s_size * (s_size + 1)/2 + s_size):
         print("Warning: The path does not make sense.")
+    print("Convergence history (hypercube1):", [f"{x:.1f}" for x in history1])
 
     print("\n" + "="*40 + "\n")
 
     # Using the new hypercube method
     start_time = time.time()
     solver2 = TSPHC2(s, verbose=verbose)
-    path2 = solver2.run()
+    path2, history2 = solver2.run()
     end_time = time.time()
     print(f"Time taken (hypercube2): {end_time - start_time:.4f} seconds")
     print("Optimal path (hypercube2):", path2)
@@ -80,10 +84,11 @@ for i in range(banbok):
     sum = np.sum(path2)
     if sum != (s_size * (s_size + 1)/2 + s_size):
         print("Warning: The path does not make sense.")
+    print("Convergence history (hypercube2):", [f"{x:.1f}" for x in history2])
 
-    if solver.get_cost() < solver1.get_cost() and solver.get_cost() < solver2.get_cost():
+    if solver_cost < solver1_cost and solver_cost < solver2.get_cost():
         win[0] += 1
-    elif solver1.get_cost() < solver.get_cost() and solver1.get_cost() < solver2.get_cost():
+    elif solver1_cost < solver_cost and solver1_cost < solver2.get_cost():
         win[1] += 1
     else:
         win[2] += 1
@@ -105,3 +110,14 @@ if (banbok > 1):
     print(f"Original method wins: {win[0]} times")
     print(f"Hypercube method 1 wins: {win[1]} times")
     print(f"Hypercube method 2 wins: {win[2]} times\n")
+
+
+plt.plot(range(len(history)), history, label='Original')
+plt.plot(range(len(history1)), history1, label='Hypercube1')
+plt.plot(range(len(history2)), history2, label='Hypercube2')
+
+plt.xlabel("Iteration")
+plt.ylabel("Cost")
+plt.legend()
+plt.grid(True)
+plt.show()

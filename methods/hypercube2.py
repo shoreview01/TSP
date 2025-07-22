@@ -48,7 +48,7 @@ class TSPHC2:
 
 
     def run(self):
-
+        history = []
         iter_conv_check = 0
         iter = 1
         N = self.N
@@ -106,10 +106,14 @@ class TSPHC2:
             for t in range(1, N - 1):
                 self.c[t] = np.argmax([self.lambda_[t, m] + self.delta[t - 1, m] for m in range(N)])
 
+            cost = self.get_cost(end=False)
+            
             if self.verbose:
                 path_str = ' → '.join(str(x) for x in self.get_path())
-                print(f"Iter {iter}: path = {path_str}, cost = {self.get_cost():.4f}")
+                print(f"Iter {iter}: path = {path_str}, cost = {cost:.4f}")
 
+            history.append(cost)
+            
             # convergence check
             if np.array_equal(self.c, c_old):
                 iter_conv_check += 1
@@ -123,7 +127,7 @@ class TSPHC2:
             iter += 1
 
         self.iterations = iter
-        return self.get_path()
+        return self.get_path(), history
 
     def get_path(self):
         # Convert to 1-based indexing including depot
@@ -134,7 +138,7 @@ class TSPHC2:
         path[N + 1] = N + 1
         return path
 
-    def get_cost(self):
+    def get_cost(self, end=False):
         path = self.get_path()
         return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
     

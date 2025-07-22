@@ -20,12 +20,13 @@ s = np.random.uniform(0, 20, size=(10, 10))
 # TSP solver using the original method
 solver = TSPMaxSum(s, verbose=True)
 start_time = time.time()
-path = solver.run()
+path, history1 = solver.run()
 end_time = time.time()
 print(f"Time taken: {end_time - start_time:.4f} seconds")
 print("Optimal path:", path)
 print(f"Optimal cost: {solver.get_cost():.1f}")
 print("Number of iterations:", solver.iterations)
+print("Convergence history:", history1)
 
 print("\n" + "="*40 + "\n")
 
