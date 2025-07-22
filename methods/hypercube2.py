@@ -1,7 +1,7 @@
 import numpy as np
 
 class TSPHC2:
-    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
+    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, c_old=False, verbose=False):
         self.s_original = s
         self.damp = damp
         self.t_max = t_max
@@ -38,13 +38,16 @@ class TSPHC2:
 
         # Initialize messages
         N = self.N
-        self.phi = np.zeros((N, N))
-        self.gamma = np.zeros((N, N))
-        self.zeta = np.zeros((N, N))
-        self.beta = np.zeros((N - 1, N))
-        self.delta = np.zeros((N - 1, N))
-        self.lambda_ = np.zeros((N, N))
-        self.c = np.zeros(N, dtype=int)
+        self.phi = np.random.rand(N, N)
+        self.gamma = np.random.rand(N, N)
+        self.zeta = np.random.rand(N, N)
+        self.beta = np.random.rand(N - 1, N)
+        self.delta = np.random.rand(N - 1, N)
+        self.lambda_ = np.random.rand(N, N)
+        if c_old==False:
+            self.c = np.zeros(N, dtype=int)
+        else:
+            self.c = np.array(c_old).copy()
 
 
     def run(self):

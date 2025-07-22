@@ -1,7 +1,7 @@
 import numpy as np
 
 class TSPHC1:
-    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):
+    def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, c_old=False, verbose=False):
         self.s_original = s
         self.damp = damp
         self.t_max = t_max
@@ -20,7 +20,10 @@ class TSPHC1:
         self.beta = np.zeros((N - 1, N))
         self.delta = np.zeros((N - 1, N))
         self.lambda_ = np.zeros((N, N))
-        self.c = np.zeros(N, dtype=int)
+        if c_old==False:
+            self.c = np.zeros(N, dtype=int)
+        else:
+            self.c = np.array(c_old).copy()
         
         # 노드를 Hamming weight별로 그룹화
         self.nodes_by_weight = [[] for _ in range(self.N+1)]
@@ -39,7 +42,7 @@ class TSPHC1:
 
         while iter <= self.t_max:
             c_old = self.c.copy()
-            
+            print(c_old)
             # phi update
             for t in range(N):
                 for i in range(N):

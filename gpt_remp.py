@@ -15,7 +15,7 @@ class TSPReMP:
     #            history : subtotal cost after each outer iteration
     # ----------------------------------------------------------------------
     def __init__(self, s, rho=0.5, big_penalty=None,
-                 remp_iter=400, outer_iter=100, tol=1e8, verbose=False):
+                 remp_iter=400, outer_iter=100, tol=1e20, verbose=False):
         self.D = s.astype(float)
         self.N_tot = self.D.shape[0]        # includes depot
         self.depot = self.N_tot - 1         # last row/col is depot
@@ -78,13 +78,13 @@ class TSPReMP:
         for _ in range(self.remp_iter):
             R = P + mu_t.T
             # row‑wise min excluding diagonal element
-            row_min = np.min(R + np.eye(N) * self.big_penalty, axis=1, keepdims=True)
+            row_min = np.min(R + np.eye(N)*self.big_penalty, axis=1, keepdims=True) # np.eye(N) identity matrix
             row_sec = np.partition(R, 1, axis=1)[:, 1][:, None]
             min_excl = np.where(R != row_min, row_min, row_sec)
             mu_new = P - self.rho * min_excl + (self.rho - 1) * R
 
             C = mu_new
-            col_min = np.min(C + np.eye(N) * self.big_penalty, axis=0, keepdims=True)
+            col_min = np.min(C + np.eye(N)*self.big_penalty, axis=0, keepdims=True)
             col_sec = np.partition(C, 1, axis=0)[1, :][None, :]
             min_excl2 = np.where(C != col_min, col_min, col_sec)
             mu_t_new = -self.rho * min_excl2 + (self.rho - 1) * C
@@ -96,7 +96,7 @@ class TSPReMP:
             mu, mu_t = mu_new, mu_t_new
 
         tau = mu + mu_t.T
-        r, c = linear_sum_assignment(tau)
+        r, c = linear_sum_assignment(-tau)
         X = np.zeros_like(tau, dtype=int)
         X[r, c] = 1
         return X
@@ -134,15 +134,14 @@ class TSPReMP:
 if __name__ == "__main__":
     np.random.seed(0)
     N = 4                                    # 5 cities + depot
-    coords = np.array([
+    dist = np.array([
     [0.8, 10.1, 12.5, 0.1, 0.6],
     [0.9, 0.2, 0.9, 0.4, 0.1],
     [0.1, 0.5, 0.9, 0.9, 0.8],
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
     ])
-    dist = np.linalg.norm(coords[:, None] - coords[None, :], axis=2)
-    dist = coords
+    dist = np.random.rand(5,5)* 10
     solver = TSPReMP(dist, verbose=True)
     best_tour, history = solver.run()
     print("Best tour (0-based):", [x+1 for x in best_tour])

@@ -57,7 +57,7 @@ for i in range(banbok):
 
     # Using the original hypercube method
     start_time = time.time()
-    solver1 = TSPHC1(s, verbose=verbose)
+    solver1 = TSPHC1(s, c_old=False, verbose=verbose)
     path1, history1 = solver1.run()
     end_time = time.time()
     print(f"Time taken (hypercube1): {end_time - start_time:.4f} seconds")
@@ -74,7 +74,7 @@ for i in range(banbok):
 
     # Using the new hypercube method
     start_time = time.time()
-    solver2 = TSPHC2(s, verbose=verbose)
+    solver2 = TSPHC2(s, c_old=False, verbose=verbose)
     path2, history2 = solver2.run()
     end_time = time.time()
     print(f"Time taken (hypercube2): {end_time - start_time:.4f} seconds")
