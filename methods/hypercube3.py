@@ -1,4 +1,5 @@
 import numpy as np
+from methods.remp import TSPReMP
 
 class TSPHC3:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, c_old=False, verbose=False):
@@ -19,7 +20,7 @@ class TSPHC3:
             w = bin(i).count('1')
             self.hypercube[w].append(i)
         self.hypercube = [np.array(group) for group in self.hypercube]
-
+        
         # Initialize messages
         N = self.N
         self.phi = np.zeros((N, N))
@@ -32,6 +33,10 @@ class TSPHC3:
 
         if c_old is False:
             self.c = self.init_c_trellis_feasible()
+        elif c_old==1:
+            solv = TSPReMP(self.s_original, verbose=False)
+            tour, _ = solv.run()
+            self.c = np.array(tour[1:-1])
         else:
             self.c = np.array(c_old).copy()
 

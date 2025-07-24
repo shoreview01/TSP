@@ -6,7 +6,9 @@ Requires:  numpy, scipy (≥ 1.10 for linear_sum_assignment).
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
+from methods.hypercube3 import TSPHC3
 
+np.set_printoptions(precision=3, suppress=True)
 
 class TSPReMP:
     # ------- public API ----------------------------------------------------
@@ -14,8 +16,8 @@ class TSPReMP:
     #            tour    : [depot, … , depot]  (0‑based indices of s)
     #            history : subtotal cost after each outer iteration
     # ----------------------------------------------------------------------
-    def __init__(self, s, rho=0.5, big_penalty=None,
-                 remp_iter=400, outer_iter=100, tol=1e20, verbose=False):
+    def __init__(self, s, rho=0.6, big_penalty=None,
+                 remp_iter=100, outer_iter=100, tol=1e-1, verbose=False):
         self.D = s.astype(float)
         self.N_tot = self.D.shape[0]        # includes depot
         self.depot = self.N_tot - 1         # last row/col is depot
@@ -44,15 +46,14 @@ class TSPReMP:
             cycles = self._find_cycles(X)
 
             if self.verbose:
-                print(f"[Iter {out:02}]  cycles = {len(cycles)}")
+                print(f"[Iter {out+1:02}]  cycles = {len(cycles)}")
 
             # Hamiltonian cycle found
             if len(cycles) == 1 and len(cycles[0]) == self.N_tot:
                 tour = self._cycle_to_tour(cycles[0])
                 cost = self._tour_cost(tour)
                 self.cost_hist.append(cost)
-                if self.verbose:
-                    print("✅ tour:", tour, "cost:", cost)
+                    
                 return tour, self.cost_hist
 
             # break each subtour with a penalty on one of its edges
@@ -70,37 +71,35 @@ class TSPReMP:
     # ============== helpers ===============================================
 
     def _remp_assignment(self, P):
-        """ReMP inner loop + Hungarian to enforce 1-to-1."""
+        """ReMP inner loop + Hungarian to enforce 1-to-1, with min-sum style message passing."""
         N = P.shape[0]
         mu = np.zeros((N, N))
         mu_t = np.zeros((N, N))
 
         for _ in range(self.remp_iter):
+            # row update: i → j
             R = P + mu_t.T
-            # row‑wise min excluding diagonal element
-            row_min = np.min(R + np.eye(N)*self.big_penalty, axis=1, keepdims=True) # np.eye(N) identity matrix
-            row_sec = np.partition(R, 1, axis=1)[:, 1][:, None]
-            min_excl = np.where(R != row_min, row_min, row_sec)
-            mu_new = P - self.rho * min_excl + (self.rho - 1) * R
+            row_min = np.min(R + np.eye(N)*self.big_penalty, axis=1, keepdims=True)
+            row_diff = R - row_min  # how worse each option is compared to best
+            mu_new = self.rho * row_diff
 
-            C = mu_new
+            # column update: j → i
+            C = P + mu_new
             col_min = np.min(C + np.eye(N)*self.big_penalty, axis=0, keepdims=True)
-            col_sec = np.partition(C, 1, axis=0)[1, :][None, :]
-            min_excl2 = np.where(C != col_min, col_min, col_sec)
-            mu_t_new = -self.rho * min_excl2 + (self.rho - 1) * C
+            col_diff = C - col_min
+            mu_t_new = self.rho * col_diff
 
-            if (np.abs(mu_new - mu).max() < self.tol
-                    and np.abs(mu_t_new - mu_t).max() < self.tol):
-                mu, mu_t = mu_new, mu_t_new
-                break
-            mu, mu_t = mu_new, mu_t_new
-        
-        tau = mu + mu_t.T
-        r, c = linear_sum_assignment(-tau)
+            # damping
+            mu = self.rho * mu + (1 - self.rho) * mu_new
+            mu_t = self.rho * mu_t + (1 - self.rho) * mu_t_new
+
+        # score: negative because we want to minimize final cost
+        tau = mu + mu_t.T + P
+        r, c = linear_sum_assignment(tau)  # maximize tau = minimize cost
         X = np.zeros_like(tau, dtype=int)
         X[r, c] = 1
-        print(X)
         return X
+
 
     @staticmethod
     def _find_cycles(X):
@@ -133,8 +132,7 @@ class TSPReMP:
 
 # ---------------- minimal demo ----------------
 if __name__ == "__main__":
-    np.random.seed(0)
-    N = 4                                    # 5 cities + depot
+
     dist = np.array([
     [0.8, 10.1, 12.5, 0.1, 0.6],
     [0.9, 0.2, 0.9, 0.4, 0.1],
@@ -142,8 +140,21 @@ if __name__ == "__main__":
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
     ])
-    dist = np.random.rand(5,5)* 10
+    dist = np.random.rand(15,15)
+    
+    
     solver = TSPReMP(dist, verbose=True)
     best_tour, history = solver.run()
-    print("Best tour (0-based):", [x+1 for x in best_tour])
-    print("Total distance:", history[-1])
+    print("Best tour (1-based):", [x+1 for x in best_tour])
+    print("Total distance:", f"{history[-1]:.3f}")
+    
+    solver2 = TSPHC3(dist, verbose=True)
+    best_tour2, history2 = solver2.run()
+    print("Best tour (1-based):", [x for x in best_tour2])
+    print("Total distance:", f"{history2[-1]:.3f}")
+    
+    solver3 = TSPHC3(dist, c_old=1, verbose=True)
+    best_tour3, history3 = solver3.run()
+    print("Best tour (1-based):", [x for x in best_tour3])
+    print("Total distance:", f"{history3[-1]:.3f}")
+    
