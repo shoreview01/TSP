@@ -94,11 +94,12 @@ class TSPReMP:
                 mu, mu_t = mu_new, mu_t_new
                 break
             mu, mu_t = mu_new, mu_t_new
-
+        
         tau = mu + mu_t.T
         r, c = linear_sum_assignment(-tau)
         X = np.zeros_like(tau, dtype=int)
         X[r, c] = 1
+        print(X)
         return X
 
     @staticmethod

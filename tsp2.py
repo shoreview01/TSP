@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from methods.original import TSPMaxSum
 from methods.hypercube import TSPHC1
 from methods.hypercube2 import TSPHC2
+from methods.hypercube3 import TSPHC3
 from methods.brute_force import TSP_brute_force
 
 # Example usage
@@ -23,7 +24,7 @@ s2 = np.array([
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
 ])
-s_size = 11
+s_size = 13
 s3 = np.random.uniform(0, 10, size=(s_size, s_size))
 
 verbose = False
@@ -51,6 +52,7 @@ for i in range(banbok):
     if sum != (s_size * (s_size + 1)/2 + s_size):
         print("Warning: The path does not make sense.")
     print("Convergence history (original):", [f"{x:.1f}" for x in history])
+    
     print("\n" + "="*40 + "\n")
 
     # Using the hypercube method
@@ -86,6 +88,22 @@ for i in range(banbok):
         print("Warning: The path does not make sense.")
     print("Convergence history (hypercube2):", [f"{x:.1f}" for x in history2])
 
+    print("\n" + "="*40 + "\n")
+
+    # Using the newest hypercube method
+    start_time = time.time()
+    solver3 = TSPHC3(s, c_old=False, verbose=verbose)
+    path3, history3 = solver3.run()
+    end_time = time.time()
+    print(f"Time taken (hypercube3): {end_time - start_time:.4f} seconds")
+    print("Optimal path (hypercube3):", path3)
+    print(f"Optimal cost (hypercube3): {solver3.get_cost():.1f}")
+    print("Number of iterations (hypercube3):", solver3.iterations)
+    sum = np.sum(path3)
+    if sum != (s_size * (s_size + 1)/2 + s_size):
+        print("Warning: The path does not make sense.")
+    print("Convergence history (hypercube3):", [f"{x:.1f}" for x in history3])
+
     if solver_cost < solver1_cost and solver_cost < solver2.get_cost():
         win[0] += 1
     elif solver1_cost < solver_cost and solver1_cost < solver2.get_cost():
@@ -94,6 +112,7 @@ for i in range(banbok):
         win[2] += 1
 
     print("\n" + "="*40 + "\n")
+
 
 # Brute force solver for comparison
 start_time = time.time()

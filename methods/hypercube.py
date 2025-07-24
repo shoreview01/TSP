@@ -42,7 +42,7 @@ class TSPHC1:
 
         while iter <= self.t_max:
             c_old = self.c.copy()
-            print(c_old)
+            
             # phi update
             for t in range(N):
                 for i in range(N):
