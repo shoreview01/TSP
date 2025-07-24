@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.optimize import linear_sum_assignment
 
 class TSPHC3:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, c_old=False, verbose=False):
@@ -12,9 +11,8 @@ class TSPHC3:
         similarity = np.exp(similarity) / np.exp(np.max(similarity))
         self.N = self.s_original.shape[0] - 1  # Exclude depot
         self.s = similarity.copy()  # shape (N, N)
-        self.penalty = 0.01#np.min(s) 
+        self.penalty = 0.5
 
-                
         # 노드를 Hamming weight별로 그룹화
         self.hypercube = [[] for _ in range(self.N+1)]
         for i in range(2**self.N):
@@ -30,11 +28,12 @@ class TSPHC3:
         self.beta = np.zeros((N - 1, N))
         self.delta = np.zeros((N - 1, N))
         self.lambda_ = np.zeros((N, N))
-        if c_old==False:
+        self.rho = np.zeros((N, N))  # backward message
+
+        if c_old is False:
             self.c = self.init_c_trellis_feasible()
         else:
             self.c = np.array(c_old).copy()
-
 
     def run(self):
         history = []
@@ -42,11 +41,11 @@ class TSPHC3:
         iter = 1
         N = self.N
         cost = np.sum(self.s_original)
-        
+
         while iter <= self.t_max:
             c_old = self.c.copy()
             c_to_binary = self.c_to_binary(c_old)
-            
+
             # phi update
             for t in range(N):
                 for i in range(N):
@@ -64,7 +63,7 @@ class TSPHC3:
             for t in range(N - 1):
                 for m in range(N):
                     if t == 0:
-                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + self.s_alt(N, m, c_to_binary[t], t)) * (1 - self.damp)
+                        self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + self.s_alt(self.N, m, c_to_binary[t], t)) * (1 - self.damp)
                     else:
                         self.beta[t, m] = self.beta[t, m] * self.damp + (self.lambda_[t, m] + self.delta[t - 1, m]) * (1 - self.damp)
 
@@ -77,38 +76,47 @@ class TSPHC3:
             # lambda update
             for t in range(N):
                 for m in range(N):
-                    self.lambda_[t, m] = self.lambda_[t, m] * self.damp + self.gamma[m, t] * (1 - self.damp)
+                    self.lambda_[t, m] = self.lambda_[t, m] * self.damp + (self.gamma[m, t] + self.rho[t, m]) * (1 - self.damp)
+
+            # backward rho update
+            for t in reversed(range(N - 1)):
+                for m in range(N):
+                    self.rho[t, m] = max(
+                        self.rho[t + 1, m_next] + self.s_alt(m, m_next, c_to_binary[t], t)
+                        for m_next in range(N) if m_next != m
+                    )
 
             # zeta update
             for t in range(N):
                 for m in range(N):
                     if t == 0:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + self.s_alt(N, m, 0, 0) * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + self.s_alt(self.N, m, 0, 0) * (1 - self.damp)
                     elif t == N - 1:
-                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + self.s_alt(m, N, c_to_binary[t], t)) * (1 - self.damp)
+                        self.zeta[t, m] = self.zeta[t, m] * self.damp + (self.delta[t - 1, m] + self.s_alt(m, self.N, c_to_binary[t], t)) * (1 - self.damp)
                     else:
                         self.zeta[t, m] = self.zeta[t, m] * self.damp + self.delta[t - 1, m] * (1 - self.damp)
 
             # c estimate
-            self.c[0] = np.argmax([self.lambda_[0, m] + self.s_alt(N, m, 0, 0) for m in range(N)])
-            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + self.s_alt(m, N, c_to_binary[N-1], N-1) for m in range(N)])
+            self.c[0] = np.argmax([self.lambda_[0, m] + self.s_alt(self.N, m, 0, 0) for m in range(N)])
+            self.c[N - 1] = np.argmax([self.lambda_[N - 1, m] + self.delta[N - 2, m] + self.s_alt(m, self.N, c_to_binary[N-1], N-1) for m in range(N)])
             for t in range(1, N - 1):
                 self.c[t] = np.argmax([self.lambda_[t, m] + self.delta[t - 1, m] for m in range(N)])
 
             self.c = self.hamiltonianize(self.c)
-            
+
+            # cost update
             new_cost = self.get_cost(end=False)
             if new_cost <= cost:
                 cost = new_cost
             else:
                 self.c = c_old
-            
+
             if self.verbose:
                 path_str = ' → '.join(str(x) for x in self.get_path())
                 print(f"Iter {iter}: path = {path_str}, cost = {cost:.4f}")
 
             history.append(cost)
-            
+
             # convergence check
             if np.array_equal(self.c, c_old):
                 iter_conv_check += 1
@@ -118,14 +126,13 @@ class TSPHC3:
                     break
             else:
                 iter_conv_check = 0
-            
+
             iter += 1
 
         self.iterations = iter
         return self.get_path(), history
 
     def get_path(self):
-        # Convert to 1-based indexing including depot
         N = self.N
         path = np.zeros(N + 2, dtype=int)
         path[0] = N + 1
@@ -135,11 +142,14 @@ class TSPHC3:
 
     def get_cost(self, end=False):
         path = self.get_path()
-        return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
-    
+        if np.sum(path) != ((self.N+1) * (self.N + 2) / 2 + self.N+1) and end:
+            return np.inf
+        else:
+            return np.sum(self.s_original[path[:-1] - 1, path[1:] - 1])
+
     def init_c_trellis_feasible(self):
         visited = set()
-        current = self.N  # depot
+        current = self.N
         c = []
         for _ in range(self.N):
             next_city = min(
@@ -151,7 +161,6 @@ class TSPHC3:
             current = next_city
         return np.array(c)
 
-    
     def c_to_binary(self, c):
         bin_path = np.zeros(self.N, dtype=int)
         visited = 0
@@ -159,21 +168,21 @@ class TSPHC3:
             visited |= (1 << c[i])
             bin_path[i] = visited
         return bin_path
-    
+
     def s_alt(self, m_prime, m, c_to_binary_t, t):
-        if m_prime==self.N:
+        if m_prime == self.N:
             return self.s[self.N, m]
-        elif t==self.N-1:
+        elif t == self.N - 1:
             return self.s[m_prime, m]
         else:
-            if c_to_binary_t not in self.hypercube[t+1]:
-                return self.s[m_prime, m] * self.penalty
+            if c_to_binary_t not in self.hypercube[t + 1]:
+                return self.s[m_prime, m] * self.penalty_factor(t)
             c_to_binary_next = c_to_binary_t | (1 << m)
-            if c_to_binary_next not in self.hypercube[t+2]:
-                return self.s[m_prime, m] * self.penalty
+            if c_to_binary_next not in self.hypercube[t + 2]:
+                return self.s[m_prime, m] * self.penalty_factor(t)
             else:
                 return self.s[m_prime, m]
-            
+
     def hamiltonianize(self, c):
         visited = set()
         c_new = []
@@ -183,16 +192,17 @@ class TSPHC3:
                 c_new.append(current)
                 visited.add(current)
             else:
-                # 중복일 경우 새 노드 찾기
                 candidates = [m for m in range(self.N) if m not in visited]
                 if not candidates:
                     break
                 prev = c_new[-1]
-                best = max(candidates, key=lambda m: self.s[prev, m])  # 유사도 최대인 노드 선택
+                best = max(candidates, key=lambda m: self.s[prev, m])
                 c_new.append(best)
                 visited.add(best)
-        # 경로 길이 부족 시 나머지 node 채움
         if len(c_new) < self.N:
             rest = [m for m in range(self.N) if m not in visited]
             c_new.extend(rest)
         return np.array(c_new)
+
+    def penalty_factor(self, t):
+        return self.penalty * np.exp(-t / 10)
