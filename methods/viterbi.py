@@ -1,13 +1,14 @@
 import numpy as np
 
 class TSPBitmask:
-    def __init__(self, dist, verbose=False):
+    def __init__(self, dist, max=50, verbose=False):
         self.dist = dist
         self.verbose = verbose
         self.n = dist.shape[0]
         self.dp = {}
         self.tour = []
         self.min_cost = np.inf
+        self.max = max
 
     def run(self):
         n = self.n
@@ -25,6 +26,8 @@ class TSPBitmask:
                     continue
                 for v in cities:
                     if visited & (1 << v):
+                        continue
+                    if self.dist[u][v] >= self.max:
                         continue
                     new_visited = visited | (1 << v)
                     prev_cost = dp.get((visited, u), (np.inf, -1))[0]

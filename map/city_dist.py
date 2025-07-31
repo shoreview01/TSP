@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # 기존 CSV 파일 불러오기
-df_csv = pd.read_csv("Korean_Cities_100_with_Coordinates.csv")
+df_csv = pd.read_csv("map/seoul_gyeonggi_incheon_cities.csv")
 
 # 거리 행렬 생성 (50km 이상이면 1000 부여)
 N = len(df_csv)
@@ -25,7 +25,7 @@ similarity_matrix = np.maximum(0, 50 - distance_matrix)
 distance_df_csv = pd.DataFrame(distance_matrix, index=df_csv["City"], columns=df_csv["City"])
 
 # 저장
-output_path = "Korean_Cities_DistanceMatrix_Penalty50.csv"
+output_path = "Capital_Cities_DistanceMatrix_Penalty50.csv"
 distance_df_csv.to_csv(output_path)
 
 # DataFrame으로 변환
@@ -33,5 +33,5 @@ similarity_df_csv = pd.DataFrame(similarity_matrix, index=df_csv["City"], column
 np.fill_diagonal(similarity_df_csv.values, 0)
 
 # 저장
-output_path = "Korean_Cities_SimilarityMatrix_Penalty0.csv"
+output_path = "Capital_Cities_SimilarityMatrix_Penalty0.csv"
 similarity_df_csv.to_csv(output_path)

@@ -1,7 +1,6 @@
 import numpy as np
 from hypercube3 import TSPHC3
 
-
 class APViterbiTSP:
     def __init__(self, s, ap_model: TSPHC3):
         self.s = s
@@ -69,6 +68,7 @@ dist = np.array([
     [0.9, 0.9, 0.5, 0.8, 0.9],
     [0.6, 0.009, 1.8, 0.9, 0.6]
 ])
-solver = APViterbiTSP(dist, ap_model=TSPHC3)
+model = TSPHC3(dist)
+solver = APViterbiTSP(dist, ap_model=model)
 path, cost = solver.run()
 print(path)
