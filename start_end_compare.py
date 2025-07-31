@@ -9,7 +9,7 @@ np.set_printoptions(precision=3, suppress=True)
 # Reload the distance matrix file
 file_path = "map/Capital_Cities_DistanceMatrix_Penalty50.csv"
 dist_df = pd.read_csv(file_path, index_col=0)
-dist_df = dist_df.iloc[:15,:15]
+#dist_df = dist_df.iloc[:15,:15]
 start_city="서울"
 end_city="연천"
 

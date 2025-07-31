@@ -13,7 +13,7 @@ distance_matrix = np.zeros((N, N))
 for i in range(N):
     for j in range(N):
         if i == j:
-            distance_matrix[i, j] = 0
+            distance_matrix[i, j] = 50
         else:
             coord_i = (df_csv.loc[i, 'Latitude'], df_csv.loc[i, 'Longitude'])
             coord_j = (df_csv.loc[j, 'Latitude'], df_csv.loc[j, 'Longitude'])
