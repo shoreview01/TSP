@@ -1,5 +1,5 @@
 import numpy as np
-from methods.remp import TSPReMP
+from remp import TSPReMP
 
 class TSPHC3:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, c_old=False, verbose=False):
