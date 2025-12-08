@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5e894d7e3b8fe06f320e4de3051bc6fb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5e894d7e3b8fe06f320e4de3051bc6fb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5e894d7e3b8fe06f320e4de3051bc6fb = L.map(
+                "map_5e894d7e3b8fe06f320e4de3051bc6fb",
+                {
+                    center: [37.599782602396324, 127.02587237889938],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5c6ef52ebcc9760ec6468911a5890123 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5c6ef52ebcc9760ec6468911a5890123.addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var poly_line_5c36d2f9a98adb8fd956d0807bea75a3 = L.polyline(
+                [[37.61204694, 127.0003307], [37.61481109, 127.004594], [37.61607225, 127.0086036], [37.61276756, 127.0063833], [37.60981518261344, 127.00159464011637], [37.60681398, 127.00188], [37.6107639, 126.9969692], [37.61204694, 127.0003307]],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#38aadd", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_5c36d2f9a98adb8fd956d0807bea75a3.bindTooltip(
+                `<div>
+                     Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_56c0b6dd83f9e6f7f3942f174cd991e7 = L.marker(
+                [37.61204694, 127.0003307],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_470f1f4df78a66cd21cea55a0b186043 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_90061cf18677602fb98fde8927c54729 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1bf51a1f139d80f37416384657599fd4 = $(`<div id="html_1bf51a1f139d80f37416384657599fd4" style="width: 100.0%; height: 100.0%;"><b>[Head C1]</b> 청덕초교</div>`)[0];
+                popup_90061cf18677602fb98fde8927c54729.setContent(html_1bf51a1f139d80f37416384657599fd4);
+            
+        
+
+        marker_56c0b6dd83f9e6f7f3942f174cd991e7.bindPopup(popup_90061cf18677602fb98fde8927c54729)
+        ;
+
+        
+    
+    
+                marker_56c0b6dd83f9e6f7f3942f174cd991e7.setIcon(icon_470f1f4df78a66cd21cea55a0b186043);
+            
+    
+            var circle_marker_f261a8348e69863ba0bb7aa229b39fa5 = L.circleMarker(
+                [37.61481109, 127.004594],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_f6eb39f7668eaad665467a3b5ee1b644 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4942ad840d65fbc1d785a4bbdf49d868 = $(`<div id="html_4942ad840d65fbc1d785a4bbdf49d868" style="width: 100.0%; height: 100.0%;">경국사</div>`)[0];
+                popup_f6eb39f7668eaad665467a3b5ee1b644.setContent(html_4942ad840d65fbc1d785a4bbdf49d868);
+            
+        
+
+        circle_marker_f261a8348e69863ba0bb7aa229b39fa5.bindPopup(popup_f6eb39f7668eaad665467a3b5ee1b644)
+        ;
+
+        
+    
+    
+            var circle_marker_47c46245386a5f95ce1f9a342dbee967 = L.circleMarker(
+                [37.61607225, 127.0086036],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_a31ba7fea33968893c565d97bae8596c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb88559ab3c60326b1c11015d991ad86 = $(`<div id="html_fb88559ab3c60326b1c11015d991ad86" style="width: 100.0%; height: 100.0%;">정릉파출소</div>`)[0];
+                popup_a31ba7fea33968893c565d97bae8596c.setContent(html_fb88559ab3c60326b1c11015d991ad86);
+            
+        
+
+        circle_marker_47c46245386a5f95ce1f9a342dbee967.bindPopup(popup_a31ba7fea33968893c565d97bae8596c)
+        ;
+
+        
+    
+    
+            var circle_marker_90c71598e40179c8af4b97b7cae6c0e3 = L.circleMarker(
+                [37.61276756, 127.0063833],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_7f12c7df3dea8248cd7369a36610e49f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_875c12bda1f268c1f36a1babbac3cc34 = $(`<div id="html_875c12bda1f268c1f36a1babbac3cc34" style="width: 100.0%; height: 100.0%;">정릉어울림마당 개방화장실</div>`)[0];
+                popup_7f12c7df3dea8248cd7369a36610e49f.setContent(html_875c12bda1f268c1f36a1babbac3cc34);
+            
+        
+
+        circle_marker_90c71598e40179c8af4b97b7cae6c0e3.bindPopup(popup_7f12c7df3dea8248cd7369a36610e49f)
+        ;
+
+        
+    
+    
+            var circle_marker_e8c829ac9d39ccf1fe06c6b5609b06eb = L.circleMarker(
+                [37.60981518261344, 127.00159464011637],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_e7e19d6464677dc72751e616cc6a238d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3db8c69595623b24fdf5a3911a6f8195 = $(`<div id="html_3db8c69595623b24fdf5a3911a6f8195" style="width: 100.0%; height: 100.0%;">고려대학교 사범대학 부속고등학교</div>`)[0];
+                popup_e7e19d6464677dc72751e616cc6a238d.setContent(html_3db8c69595623b24fdf5a3911a6f8195);
+            
+        
+
+        circle_marker_e8c829ac9d39ccf1fe06c6b5609b06eb.bindPopup(popup_e7e19d6464677dc72751e616cc6a238d)
+        ;
+
+        
+    
+    
+            var circle_marker_0b6d5ffea9a8681fddaf6459567bf6c2 = L.circleMarker(
+                [37.60681398, 127.00188],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_8f9a7141db26383107fa49223b7c6686 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bf23d3efc51aef6ccc09f0bfd044b496 = $(`<div id="html_bf23d3efc51aef6ccc09f0bfd044b496" style="width: 100.0%; height: 100.0%;">북악중학교</div>`)[0];
+                popup_8f9a7141db26383107fa49223b7c6686.setContent(html_bf23d3efc51aef6ccc09f0bfd044b496);
+            
+        
+
+        circle_marker_0b6d5ffea9a8681fddaf6459567bf6c2.bindPopup(popup_8f9a7141db26383107fa49223b7c6686)
+        ;
+
+        
+    
+    
+            var circle_marker_f7a80dde56da8a64139c70d42a557816 = L.circleMarker(
+                [37.6107639, 126.9969692],
+                {"bubblingMouseEvents": true, "color": "#38aadd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4aff53fa50cdd68799b31f77d12c3652 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3087bd757e80f2c1e6fc018ef75111e8 = $(`<div id="html_3087bd757e80f2c1e6fc018ef75111e8" style="width: 100.0%; height: 100.0%;">국민대학교</div>`)[0];
+                popup_4aff53fa50cdd68799b31f77d12c3652.setContent(html_3087bd757e80f2c1e6fc018ef75111e8);
+            
+        
+
+        circle_marker_f7a80dde56da8a64139c70d42a557816.bindPopup(popup_4aff53fa50cdd68799b31f77d12c3652)
+        ;
+
+        
+    
+    
+            var marker_a24ceebb4a3367b12a301adc364639ad = L.marker(
+                [37.61204694, 127.0003307],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_be3c9a11fdb733bfb1bb50a86b0af393 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_052075405ace42edc8ea1d23af76ad33 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc30fad2b1d68644f838e31f2fb996f6 = $(`<div id="html_fc30fad2b1d68644f838e31f2fb996f6" style="width: 100.0%; height: 100.0%;"><b>[Head C1]</b> 청덕초교</div>`)[0];
+                popup_052075405ace42edc8ea1d23af76ad33.setContent(html_fc30fad2b1d68644f838e31f2fb996f6);
+            
+        
+
+        marker_a24ceebb4a3367b12a301adc364639ad.bindPopup(popup_052075405ace42edc8ea1d23af76ad33)
+        ;
+
+        
+    
+    
+                marker_a24ceebb4a3367b12a301adc364639ad.setIcon(icon_be3c9a11fdb733bfb1bb50a86b0af393);
+            
+    
+            var poly_line_3ff43059c76fee76ada285fa90d441ce = L.polyline(
+                [[37.58257453066624, 127.0211258089404], [37.57967712, 127.0247839], [37.58079499, 127.0215782], [37.58233765, 127.02069552861252], [37.58503454827613, 127.0193410541386], [37.58579688, 127.0187978], [37.586106754137454, 127.01919301366834], [37.58257453066624, 127.0211258089404]],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#d252b9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_3ff43059c76fee76ada285fa90d441ce.bindTooltip(
+                `<div>
+                     Cluster 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bb64b0dd76f2db42d5d5d90d0f8dfb4e = L.marker(
+                [37.58257453066624, 127.0211258089404],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_bc0f0b50d017f87daa797478e73b2674 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b660378add6969de3e6fcbc6da18d18 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cfae723c2e0a31828b2c0f18bffceeca = $(`<div id="html_cfae723c2e0a31828b2c0f18bffceeca" style="width: 100.0%; height: 100.0%;"><b>[Head C3]</b> 우리네흑염소삼계탕추어탕</div>`)[0];
+                popup_6b660378add6969de3e6fcbc6da18d18.setContent(html_cfae723c2e0a31828b2c0f18bffceeca);
+            
+        
+
+        marker_bb64b0dd76f2db42d5d5d90d0f8dfb4e.bindPopup(popup_6b660378add6969de3e6fcbc6da18d18)
+        ;
+
+        
+    
+    
+                marker_bb64b0dd76f2db42d5d5d90d0f8dfb4e.setIcon(icon_bc0f0b50d017f87daa797478e73b2674);
+            
+    
+            var circle_marker_73653f2889e0831b2f5a9dfd0beef1c3 = L.circleMarker(
+                [37.57967712, 127.0247839],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_5a388d5bdb30fa0ee1d6988e3e38686d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59731bab05f730ab56807417de3f51bc = $(`<div id="html_59731bab05f730ab56807417de3f51bc" style="width: 100.0%; height: 100.0%;">엘와이엔치과</div>`)[0];
+                popup_5a388d5bdb30fa0ee1d6988e3e38686d.setContent(html_59731bab05f730ab56807417de3f51bc);
+            
+        
+
+        circle_marker_73653f2889e0831b2f5a9dfd0beef1c3.bindPopup(popup_5a388d5bdb30fa0ee1d6988e3e38686d)
+        ;
+
+        
+    
+    
+            var circle_marker_c6fc4b738466cac2db79013684180c21 = L.circleMarker(
+                [37.58079499, 127.0215782],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_2410cc461704e4552766b9c4e40d0db8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b61652fb3b8e9c16102e4c78ba0ecea8 = $(`<div id="html_b61652fb3b8e9c16102e4c78ba0ecea8" style="width: 100.0%; height: 100.0%;">홈플러스익스프레스 보문점</div>`)[0];
+                popup_2410cc461704e4552766b9c4e40d0db8.setContent(html_b61652fb3b8e9c16102e4c78ba0ecea8);
+            
+        
+
+        circle_marker_c6fc4b738466cac2db79013684180c21.bindPopup(popup_2410cc461704e4552766b9c4e40d0db8)
+        ;
+
+        
+    
+    
+            var circle_marker_290a399df0de89322ceb12ff13cdf11d = L.circleMarker(
+                [37.58233765, 127.02069552861252],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4ffb7027e907a355cfa8e48e94ffaddc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4b3787f3ca1b2df46f909b737678b780 = $(`<div id="html_4b3787f3ca1b2df46f909b737678b780" style="width: 100.0%; height: 100.0%;">차세대고속관광</div>`)[0];
+                popup_4ffb7027e907a355cfa8e48e94ffaddc.setContent(html_4b3787f3ca1b2df46f909b737678b780);
+            
+        
+
+        circle_marker_290a399df0de89322ceb12ff13cdf11d.bindPopup(popup_4ffb7027e907a355cfa8e48e94ffaddc)
+        ;
+
+        
+    
+    
+            var circle_marker_e447b6a3dbbdc9843531bd9567c99114 = L.circleMarker(
+                [37.58503454827613, 127.0193410541386],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_b34ff9807ebb4470f4d35b3419a6e243 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_234183f37346d5565aa7bf025cc3938d = $(`<div id="html_234183f37346d5565aa7bf025cc3938d" style="width: 100.0%; height: 100.0%;">배스킨라빈스 보문역점</div>`)[0];
+                popup_b34ff9807ebb4470f4d35b3419a6e243.setContent(html_234183f37346d5565aa7bf025cc3938d);
+            
+        
+
+        circle_marker_e447b6a3dbbdc9843531bd9567c99114.bindPopup(popup_b34ff9807ebb4470f4d35b3419a6e243)
+        ;
+
+        
+    
+    
+            var circle_marker_5ee48b25a30c8236dc43dfe34bae9310 = L.circleMarker(
+                [37.58579688, 127.0187978],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_2f5d61a4327b7d6f1e1fa896ba1bfbcd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa5df5c9744ec186abd8ddb4b492d765 = $(`<div id="html_aa5df5c9744ec186abd8ddb4b492d765" style="width: 100.0%; height: 100.0%;">GS더프레시 보문역사거리점</div>`)[0];
+                popup_2f5d61a4327b7d6f1e1fa896ba1bfbcd.setContent(html_aa5df5c9744ec186abd8ddb4b492d765);
+            
+        
+
+        circle_marker_5ee48b25a30c8236dc43dfe34bae9310.bindPopup(popup_2f5d61a4327b7d6f1e1fa896ba1bfbcd)
+        ;
+
+        
+    
+    
+            var circle_marker_df683de37ebef1ae25e8e0b60970607b = L.circleMarker(
+                [37.586106754137454, 127.01919301366834],
+                {"bubblingMouseEvents": true, "color": "#d252b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_d9b405e3df8bb101864a723612e38ed6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cbc0b5ffe7ee85044be1deb92a4e44b = $(`<div id="html_6cbc0b5ffe7ee85044be1deb92a4e44b" style="width: 100.0%; height: 100.0%;">이철환치과의원</div>`)[0];
+                popup_d9b405e3df8bb101864a723612e38ed6.setContent(html_6cbc0b5ffe7ee85044be1deb92a4e44b);
+            
+        
+
+        circle_marker_df683de37ebef1ae25e8e0b60970607b.bindPopup(popup_d9b405e3df8bb101864a723612e38ed6)
+        ;
+
+        
+    
+    
+            var marker_5c00f747a324303588b2bb8adaeb42b0 = L.marker(
+                [37.58257453066624, 127.0211258089404],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_5b1d035e63370705d1d3769d353ea20a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_36c5afcd365363bd4df2ce05d1a005e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c0e042f496e91028b3b573f678969ea = $(`<div id="html_1c0e042f496e91028b3b573f678969ea" style="width: 100.0%; height: 100.0%;"><b>[Head C3]</b> 우리네흑염소삼계탕추어탕</div>`)[0];
+                popup_36c5afcd365363bd4df2ce05d1a005e2.setContent(html_1c0e042f496e91028b3b573f678969ea);
+            
+        
+
+        marker_5c00f747a324303588b2bb8adaeb42b0.bindPopup(popup_36c5afcd365363bd4df2ce05d1a005e2)
+        ;
+
+        
+    
+    
+                marker_5c00f747a324303588b2bb8adaeb42b0.setIcon(icon_5b1d035e63370705d1d3769d353ea20a);
+            
+    
+            var poly_line_a7616d6a928594734f5961be8b591546 = L.polyline(
+                [[37.61363147041428, 127.04912150127144], [37.61383523941955, 127.04877052380137], [37.61828883555226, 127.0465114601062], [37.62319442, 127.0494563], [37.61206991, 127.0555423], [37.60695515, 127.0491092], [37.61363147041428, 127.04912150127144]],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#a23336", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_a7616d6a928594734f5961be8b591546.bindTooltip(
+                `<div>
+                     Cluster 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d86fd1d0621dd15082a7461f4f08e56e = L.marker(
+                [37.61363147041428, 127.04912150127144],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_1d0cd2cccb90bf900f6a7c9c1a77703c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e504d0302336891e2687977537dca28b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe3d1c8f679891622a1852fbe6dc73e2 = $(`<div id="html_fe3d1c8f679891622a1852fbe6dc73e2" style="width: 100.0%; height: 100.0%;"><b>[Head C5]</b> KB당구클럽</div>`)[0];
+                popup_e504d0302336891e2687977537dca28b.setContent(html_fe3d1c8f679891622a1852fbe6dc73e2);
+            
+        
+
+        marker_d86fd1d0621dd15082a7461f4f08e56e.bindPopup(popup_e504d0302336891e2687977537dca28b)
+        ;
+
+        
+    
+    
+                marker_d86fd1d0621dd15082a7461f4f08e56e.setIcon(icon_1d0cd2cccb90bf900f6a7c9c1a77703c);
+            
+    
+            var circle_marker_6f4fa771044e201c7876f2b69522a9ee = L.circleMarker(
+                [37.61383523941955, 127.04877052380137],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_30659cef95517b6681eb0292f8e62409 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_091db30c7405eb62238a237e4f77648a = $(`<div id="html_091db30c7405eb62238a237e4f77648a" style="width: 100.0%; height: 100.0%;">이마트24 성북장위점</div>`)[0];
+                popup_30659cef95517b6681eb0292f8e62409.setContent(html_091db30c7405eb62238a237e4f77648a);
+            
+        
+
+        circle_marker_6f4fa771044e201c7876f2b69522a9ee.bindPopup(popup_30659cef95517b6681eb0292f8e62409)
+        ;
+
+        
+    
+    
+            var circle_marker_3a95f725b8b47f3b148eaa7bff3851f6 = L.circleMarker(
+                [37.61828883555226, 127.0465114601062],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_dbb935bde1cd477a38985584cedf9c97 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33125cdab66a86cdde1035d4fd89c8fc = $(`<div id="html_33125cdab66a86cdde1035d4fd89c8fc" style="width: 100.0%; height: 100.0%;">북서울새마을금고 본점</div>`)[0];
+                popup_dbb935bde1cd477a38985584cedf9c97.setContent(html_33125cdab66a86cdde1035d4fd89c8fc);
+            
+        
+
+        circle_marker_3a95f725b8b47f3b148eaa7bff3851f6.bindPopup(popup_dbb935bde1cd477a38985584cedf9c97)
+        ;
+
+        
+    
+    
+            var circle_marker_c03652f96c11c9a2a774ca3af2ea3128 = L.circleMarker(
+                [37.62319442, 127.0494563],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_de385114080b405ce3836ba3fbd917b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70c0c8c346df6eeba88aaff29df3d288 = $(`<div id="html_70c0c8c346df6eeba88aaff29df3d288" style="width: 100.0%; height: 100.0%;">참누리아파트</div>`)[0];
+                popup_de385114080b405ce3836ba3fbd917b2.setContent(html_70c0c8c346df6eeba88aaff29df3d288);
+            
+        
+
+        circle_marker_c03652f96c11c9a2a774ca3af2ea3128.bindPopup(popup_de385114080b405ce3836ba3fbd917b2)
+        ;
+
+        
+    
+    
+            var circle_marker_b6129ed9fd639c1b5bfab88db5f75823 = L.circleMarker(
+                [37.61206991, 127.0555423],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_272d739c6b613524e86106320d1fe486 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_416553ea2a1f1732f772d04bc5b0ea95 = $(`<div id="html_416553ea2a1f1732f772d04bc5b0ea95" style="width: 100.0%; height: 100.0%;">레디언트원공인중개사</div>`)[0];
+                popup_272d739c6b613524e86106320d1fe486.setContent(html_416553ea2a1f1732f772d04bc5b0ea95);
+            
+        
+
+        circle_marker_b6129ed9fd639c1b5bfab88db5f75823.bindPopup(popup_272d739c6b613524e86106320d1fe486)
+        ;
+
+        
+    
+    
+            var circle_marker_9803c4d528c2a3b975c3f26a433a4344 = L.circleMarker(
+                [37.60695515, 127.0491092],
+                {"bubblingMouseEvents": true, "color": "#a23336", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_1b11a952fb621214dd6e3cfa0006eb76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e608550e3df4379d25cb5cc65b5ac0f7 = $(`<div id="html_e608550e3df4379d25cb5cc65b5ac0f7" style="width: 100.0%; height: 100.0%;">세븐일레븐 상월곡역점</div>`)[0];
+                popup_1b11a952fb621214dd6e3cfa0006eb76.setContent(html_e608550e3df4379d25cb5cc65b5ac0f7);
+            
+        
+
+        circle_marker_9803c4d528c2a3b975c3f26a433a4344.bindPopup(popup_1b11a952fb621214dd6e3cfa0006eb76)
+        ;
+
+        
+    
+    
+            var marker_cf9038805f2ec50822f56d787b209dc5 = L.marker(
+                [37.61363147041428, 127.04912150127144],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_bbd8070240fea24ae185c87786ca1664 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_26953f168f5802301ca6eba78d5c4f98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c24055d7f8b36fd0f8562f923c0878bb = $(`<div id="html_c24055d7f8b36fd0f8562f923c0878bb" style="width: 100.0%; height: 100.0%;"><b>[Head C5]</b> KB당구클럽</div>`)[0];
+                popup_26953f168f5802301ca6eba78d5c4f98.setContent(html_c24055d7f8b36fd0f8562f923c0878bb);
+            
+        
+
+        marker_cf9038805f2ec50822f56d787b209dc5.bindPopup(popup_26953f168f5802301ca6eba78d5c4f98)
+        ;
+
+        
+    
+    
+                marker_cf9038805f2ec50822f56d787b209dc5.setIcon(icon_bbd8070240fea24ae185c87786ca1664);
+            
+    
+            var poly_line_4ffae9e48853e808be8b63cd3b59d2c4 = L.polyline(
+                [[37.61124009, 127.0627482], [37.61393027025926, 127.06474278130652], [37.61481212, 127.066746], [37.606262311810895, 127.06572141215764], [37.61088911537856, 127.05659807745997], [37.61118022, 127.0564239], [37.61124009, 127.0627482]],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8e7f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_4ffae9e48853e808be8b63cd3b59d2c4.bindTooltip(
+                `<div>
+                     Cluster 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_075d1f3415e4b6762d713e13c5b00187 = L.marker(
+                [37.61124009, 127.0627482],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_4a53342fe7043b5d42a3f3cf0b0442a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightred",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f6fd78a316232d25f3da99090889c3b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9c731766ee10df3df22080071557ef3 = $(`<div id="html_c9c731766ee10df3df22080071557ef3" style="width: 100.0%; height: 100.0%;"><b>[Head C6]</b> 피자빨간 고추 본점</div>`)[0];
+                popup_6f6fd78a316232d25f3da99090889c3b.setContent(html_c9c731766ee10df3df22080071557ef3);
+            
+        
+
+        marker_075d1f3415e4b6762d713e13c5b00187.bindPopup(popup_6f6fd78a316232d25f3da99090889c3b)
+        ;
+
+        
+    
+    
+                marker_075d1f3415e4b6762d713e13c5b00187.setIcon(icon_4a53342fe7043b5d42a3f3cf0b0442a0);
+            
+    
+            var circle_marker_c6918cd0be3734d56e1106fc1c9ee883 = L.circleMarker(
+                [37.61393027025926, 127.06474278130652],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_7a1ebe1923e480fcf4160c9899eed67e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4cada01a2135e53d07f382bd3b30a929 = $(`<div id="html_4cada01a2135e53d07f382bd3b30a929" style="width: 100.0%; height: 100.0%;">우리은행 석계역지점</div>`)[0];
+                popup_7a1ebe1923e480fcf4160c9899eed67e.setContent(html_4cada01a2135e53d07f382bd3b30a929);
+            
+        
+
+        circle_marker_c6918cd0be3734d56e1106fc1c9ee883.bindPopup(popup_7a1ebe1923e480fcf4160c9899eed67e)
+        ;
+
+        
+    
+    
+            var circle_marker_749fe3d7fa8857b44aad7b749106ec25 = L.circleMarker(
+                [37.61481212, 127.066746],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_546c6f71f545d48c959a09c65a2acbba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f65a479d9f886d959fda69441c56b96 = $(`<div id="html_4f65a479d9f886d959fda69441c56b96" style="width: 100.0%; height: 100.0%;">석계역 4번출구</div>`)[0];
+                popup_546c6f71f545d48c959a09c65a2acbba.setContent(html_4f65a479d9f886d959fda69441c56b96);
+            
+        
+
+        circle_marker_749fe3d7fa8857b44aad7b749106ec25.bindPopup(popup_546c6f71f545d48c959a09c65a2acbba)
+        ;
+
+        
+    
+    
+            var circle_marker_57b6bb9d47b91b982f41e1c6aeb3933f = L.circleMarker(
+                [37.606262311810895, 127.06572141215764],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_262644407a1b88b25aedc30d7c48ba3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_04d6c06fba7977a8ff33591c9295f498 = $(`<div id="html_04d6c06fba7977a8ff33591c9295f498" style="width: 100.0%; height: 100.0%;">코오롱아파트</div>`)[0];
+                popup_262644407a1b88b25aedc30d7c48ba3c.setContent(html_04d6c06fba7977a8ff33591c9295f498);
+            
+        
+
+        circle_marker_57b6bb9d47b91b982f41e1c6aeb3933f.bindPopup(popup_262644407a1b88b25aedc30d7c48ba3c)
+        ;
+
+        
+    
+    
+            var circle_marker_d4f266296b83cd525b97e984a0501cd2 = L.circleMarker(
+                [37.61088911537856, 127.05659807745997],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_2ac53952ce5093a76ea88b6fa69c9be8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cceccea3595f680c3c28b93d8ed757f7 = $(`<div id="html_cceccea3595f680c3c28b93d8ed757f7" style="width: 100.0%; height: 100.0%;">레벨업PC방 돌곶이점</div>`)[0];
+                popup_2ac53952ce5093a76ea88b6fa69c9be8.setContent(html_cceccea3595f680c3c28b93d8ed757f7);
+            
+        
+
+        circle_marker_d4f266296b83cd525b97e984a0501cd2.bindPopup(popup_2ac53952ce5093a76ea88b6fa69c9be8)
+        ;
+
+        
+    
+    
+            var circle_marker_4fab5e8af00f9005713a5e2113a1f2d9 = L.circleMarker(
+                [37.61118022, 127.0564239],
+                {"bubblingMouseEvents": true, "color": "#ff8e7f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_c6fd5d9c464d260fb054e4778cae6b1c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4abec8445076a26fb2be99e21c52160b = $(`<div id="html_4abec8445076a26fb2be99e21c52160b" style="width: 100.0%; height: 100.0%;">힐링마사지</div>`)[0];
+                popup_c6fd5d9c464d260fb054e4778cae6b1c.setContent(html_4abec8445076a26fb2be99e21c52160b);
+            
+        
+
+        circle_marker_4fab5e8af00f9005713a5e2113a1f2d9.bindPopup(popup_c6fd5d9c464d260fb054e4778cae6b1c)
+        ;
+
+        
+    
+    
+            var marker_79081764964c7e9855494da41bfd46d6 = L.marker(
+                [37.61124009, 127.0627482],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_8da2657750bdce01e332ba814ee89c83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightred",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_246aa590845777d878469551ce9199a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_569b1c703778ec42c580c43bebe7c902 = $(`<div id="html_569b1c703778ec42c580c43bebe7c902" style="width: 100.0%; height: 100.0%;"><b>[Head C6]</b> 피자빨간 고추 본점</div>`)[0];
+                popup_246aa590845777d878469551ce9199a2.setContent(html_569b1c703778ec42c580c43bebe7c902);
+            
+        
+
+        marker_79081764964c7e9855494da41bfd46d6.bindPopup(popup_246aa590845777d878469551ce9199a2)
+        ;
+
+        
+    
+    
+                marker_79081764964c7e9855494da41bfd46d6.setIcon(icon_8da2657750bdce01e332ba814ee89c83);
+            
+    
+            var poly_line_cb88ac57d970466142ab7d727e10ca87 = L.polyline(
+                [[37.58971305, 127.0057496], [37.59240532, 127.0028647], [37.5933676, 127.0017709], [37.59428811996308, 126.99153023487013], [37.588738176599854, 127.00566118730129], [37.5881705, 127.00673], [37.58889908, 127.0074702], [37.58971305, 127.0057496]],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffcb92", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_cb88ac57d970466142ab7d727e10ca87.bindTooltip(
+                `<div>
+                     Cluster 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9a8f37b4e0147d9736c27bf31c04c746 = L.marker(
+                [37.58971305, 127.0057496],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_a34c0a92ef9bc70fd1a551b792285b31 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "beige",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4822d2f93e18229ddff9c097a2eaf011 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62201dbab141346363b162db2045e80b = $(`<div id="html_62201dbab141346363b162db2045e80b" style="width: 100.0%; height: 100.0%;"><b>[Head C7]</b> 성북문화원</div>`)[0];
+                popup_4822d2f93e18229ddff9c097a2eaf011.setContent(html_62201dbab141346363b162db2045e80b);
+            
+        
+
+        marker_9a8f37b4e0147d9736c27bf31c04c746.bindPopup(popup_4822d2f93e18229ddff9c097a2eaf011)
+        ;
+
+        
+    
+    
+                marker_9a8f37b4e0147d9736c27bf31c04c746.setIcon(icon_a34c0a92ef9bc70fd1a551b792285b31);
+            
+    
+            var circle_marker_bb64b8806f4db995d074a60c6a39f8e7 = L.circleMarker(
+                [37.59240532, 127.0028647],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_e119b91f95b56d8093221fa9444ef06a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60b59defe0ff58d2436a3552cf270601 = $(`<div id="html_60b59defe0ff58d2436a3552cf270601" style="width: 100.0%; height: 100.0%;">행복나눔</div>`)[0];
+                popup_e119b91f95b56d8093221fa9444ef06a.setContent(html_60b59defe0ff58d2436a3552cf270601);
+            
+        
+
+        circle_marker_bb64b8806f4db995d074a60c6a39f8e7.bindPopup(popup_e119b91f95b56d8093221fa9444ef06a)
+        ;
+
+        
+    
+    
+            var circle_marker_e957b55534e1e7cd3825f9fdbfea63a4 = L.circleMarker(
+                [37.5933676, 127.0017709],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_cd1934b3d3b64bfb538140de87df213e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15e64e99599848f3925c87d2536d1d0f = $(`<div id="html_15e64e99599848f3925c87d2536d1d0f" style="width: 100.0%; height: 100.0%;">세븐일레븐 성북홍익점</div>`)[0];
+                popup_cd1934b3d3b64bfb538140de87df213e.setContent(html_15e64e99599848f3925c87d2536d1d0f);
+            
+        
+
+        circle_marker_e957b55534e1e7cd3825f9fdbfea63a4.bindPopup(popup_cd1934b3d3b64bfb538140de87df213e)
+        ;
+
+        
+    
+    
+            var circle_marker_624f66e6142561ce799c5dfae1109982 = L.circleMarker(
+                [37.59428811996308, 126.99153023487013],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4005f6dcc1bf87f52949e20fd94b10dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa426630885329a3be6532cffe4c6be6 = $(`<div id="html_aa426630885329a3be6532cffe4c6be6" style="width: 100.0%; height: 100.0%;">신원그린빌라</div>`)[0];
+                popup_4005f6dcc1bf87f52949e20fd94b10dd.setContent(html_aa426630885329a3be6532cffe4c6be6);
+            
+        
+
+        circle_marker_624f66e6142561ce799c5dfae1109982.bindPopup(popup_4005f6dcc1bf87f52949e20fd94b10dd)
+        ;
+
+        
+    
+    
+            var circle_marker_b2badb066ab899c95685ab3005ffa1a4 = L.circleMarker(
+                [37.588738176599854, 127.00566118730129],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_32f68c9e86b117104da0bbbf7cafce8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_241818747a6e93115ca000c302494b48 = $(`<div id="html_241818747a6e93115ca000c302494b48" style="width: 100.0%; height: 100.0%;">한성대입구역 4호선 5번출구</div>`)[0];
+                popup_32f68c9e86b117104da0bbbf7cafce8f.setContent(html_241818747a6e93115ca000c302494b48);
+            
+        
+
+        circle_marker_b2badb066ab899c95685ab3005ffa1a4.bindPopup(popup_32f68c9e86b117104da0bbbf7cafce8f)
+        ;
+
+        
+    
+    
+            var circle_marker_7aadbd0b764bb40398d0ea44f90346a8 = L.circleMarker(
+                [37.5881705, 127.00673],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_29b9184bccfff400ae80a1e28d301120 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f94c69d2384aa1dabcad7edfbcc5d74f = $(`<div id="html_f94c69d2384aa1dabcad7edfbcc5d74f" style="width: 100.0%; height: 100.0%;">성북천 분수광장</div>`)[0];
+                popup_29b9184bccfff400ae80a1e28d301120.setContent(html_f94c69d2384aa1dabcad7edfbcc5d74f);
+            
+        
+
+        circle_marker_7aadbd0b764bb40398d0ea44f90346a8.bindPopup(popup_29b9184bccfff400ae80a1e28d301120)
+        ;
+
+        
+    
+    
+            var circle_marker_aa4804f06ac113ed1b14e0135e517897 = L.circleMarker(
+                [37.58889908, 127.0074702],
+                {"bubblingMouseEvents": true, "color": "#ffcb92", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_95eafa459cfff58d88c99be387b4264f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_86f37a3a1447c53ca0f619a0807fa03d = $(`<div id="html_86f37a3a1447c53ca0f619a0807fa03d" style="width: 100.0%; height: 100.0%;">한성대입구 중앙버스정류장</div>`)[0];
+                popup_95eafa459cfff58d88c99be387b4264f.setContent(html_86f37a3a1447c53ca0f619a0807fa03d);
+            
+        
+
+        circle_marker_aa4804f06ac113ed1b14e0135e517897.bindPopup(popup_95eafa459cfff58d88c99be387b4264f)
+        ;
+
+        
+    
+    
+            var marker_7944e78b453ab89eb52a6f7d14f8067e = L.marker(
+                [37.58971305, 127.0057496],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_5fea3b45bca517d7c2e4f519d254aa96 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "beige",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e4e4f03175e081b4277af5022b70895 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1756bd22ab1adbb7d5e4de42bdee472 = $(`<div id="html_c1756bd22ab1adbb7d5e4de42bdee472" style="width: 100.0%; height: 100.0%;"><b>[Head C7]</b> 성북문화원</div>`)[0];
+                popup_8e4e4f03175e081b4277af5022b70895.setContent(html_c1756bd22ab1adbb7d5e4de42bdee472);
+            
+        
+
+        marker_7944e78b453ab89eb52a6f7d14f8067e.bindPopup(popup_8e4e4f03175e081b4277af5022b70895)
+        ;
+
+        
+    
+    
+                marker_7944e78b453ab89eb52a6f7d14f8067e.setIcon(icon_5fea3b45bca517d7c2e4f519d254aa96);
+            
+    
+            var poly_line_b59f5ec54128a66e687d44b80b0e20de = L.polyline(
+                [[37.5861377, 127.0305331], [37.58650892, 127.030497], [37.59044191064368, 127.03630828564728], [37.58982088, 127.0424414], [37.5850788, 127.0314396], [37.58271779, 127.0295309], [37.58711351, 127.0266636], [37.58556492, 127.0295411], [37.5861377, 127.0305331]],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f69730", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_b59f5ec54128a66e687d44b80b0e20de.bindTooltip(
+                `<div>
+                     Cluster 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_284b79d6ad6f9df35aa9ff20a932c5d1 = L.marker(
+                [37.5861377, 127.0305331],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_eb49cb56f3ecb1bc3731ae2e4e6d4df2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7125a4874dc9f7e427403c0cea39730 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e4dc0412829acf23d6d2298822ade30e = $(`<div id="html_e4dc0412829acf23d6d2298822ade30e" style="width: 100.0%; height: 100.0%;"><b>[Head C4]</b> 미스터국밥</div>`)[0];
+                popup_e7125a4874dc9f7e427403c0cea39730.setContent(html_e4dc0412829acf23d6d2298822ade30e);
+            
+        
+
+        marker_284b79d6ad6f9df35aa9ff20a932c5d1.bindPopup(popup_e7125a4874dc9f7e427403c0cea39730)
+        ;
+
+        
+    
+    
+                marker_284b79d6ad6f9df35aa9ff20a932c5d1.setIcon(icon_eb49cb56f3ecb1bc3731ae2e4e6d4df2);
+            
+    
+            var circle_marker_157f2afb22241eda8a012beba4532c8b = L.circleMarker(
+                [37.58650892, 127.030497],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_ec8d64864970f7f42a634a88139ea4b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80b15dcb8d5fc268407a52bc32c6f917 = $(`<div id="html_80b15dcb8d5fc268407a52bc32c6f917" style="width: 100.0%; height: 100.0%;">알파 고대안암점</div>`)[0];
+                popup_ec8d64864970f7f42a634a88139ea4b2.setContent(html_80b15dcb8d5fc268407a52bc32c6f917);
+            
+        
+
+        circle_marker_157f2afb22241eda8a012beba4532c8b.bindPopup(popup_ec8d64864970f7f42a634a88139ea4b2)
+        ;
+
+        
+    
+    
+            var circle_marker_db7a36fd12865bc5d612619c24ed3cf0 = L.circleMarker(
+                [37.59044191064368, 127.03630828564728],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_611dbc41d4cecf2ebb73a46667f4da86 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a651ad430b161504acb87dc4060babb5 = $(`<div id="html_a651ad430b161504acb87dc4060babb5" style="width: 100.0%; height: 100.0%;">고려대역 6호선</div>`)[0];
+                popup_611dbc41d4cecf2ebb73a46667f4da86.setContent(html_a651ad430b161504acb87dc4060babb5);
+            
+        
+
+        circle_marker_db7a36fd12865bc5d612619c24ed3cf0.bindPopup(popup_611dbc41d4cecf2ebb73a46667f4da86)
+        ;
+
+        
+    
+    
+            var circle_marker_2e7cc01732e84ef3ee502c8011082113 = L.circleMarker(
+                [37.58982088, 127.0424414],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_5c2e9f85a21a9edd02e28c7418fdb846 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef9e447deb93e257fd6f118d315adf50 = $(`<div id="html_ef9e447deb93e257fd6f118d315adf50" style="width: 100.0%; height: 100.0%;">미아리고개 버스정류장</div>`)[0];
+                popup_5c2e9f85a21a9edd02e28c7418fdb846.setContent(html_ef9e447deb93e257fd6f118d315adf50);
+            
+        
+
+        circle_marker_2e7cc01732e84ef3ee502c8011082113.bindPopup(popup_5c2e9f85a21a9edd02e28c7418fdb846)
+        ;
+
+        
+    
+    
+            var circle_marker_fdf44317da929e3a44dea81f609093f7 = L.circleMarker(
+                [37.5850788, 127.0314396],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_9d9d129b6e58404bc9be0db80abd64ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59970871c6a65cfa1a7224c3ec12565e = $(`<div id="html_59970871c6a65cfa1a7224c3ec12565e" style="width: 100.0%; height: 100.0%;">동성온누리약국</div>`)[0];
+                popup_9d9d129b6e58404bc9be0db80abd64ca.setContent(html_59970871c6a65cfa1a7224c3ec12565e);
+            
+        
+
+        circle_marker_fdf44317da929e3a44dea81f609093f7.bindPopup(popup_9d9d129b6e58404bc9be0db80abd64ca)
+        ;
+
+        
+    
+    
+            var circle_marker_802ef00a0a489baa5a3063e717fef2f3 = L.circleMarker(
+                [37.58271779, 127.0295309],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_075d8c2eaba87e0e16e9c7ed51b12162 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d359591735ffbea3110e97a14c99aec4 = $(`<div id="html_d359591735ffbea3110e97a14c99aec4" style="width: 100.0%; height: 100.0%;">안암오거리</div>`)[0];
+                popup_075d8c2eaba87e0e16e9c7ed51b12162.setContent(html_d359591735ffbea3110e97a14c99aec4);
+            
+        
+
+        circle_marker_802ef00a0a489baa5a3063e717fef2f3.bindPopup(popup_075d8c2eaba87e0e16e9c7ed51b12162)
+        ;
+
+        
+    
+    
+            var circle_marker_2abd6c1bd9ae564a17ed0e9e2e8a0226 = L.circleMarker(
+                [37.58711351, 127.0266636],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_0360f3efd46bf5c101966ff1878653a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff1ecc4f51c8f15ac53eecc35c3b2ce4 = $(`<div id="html_ff1ecc4f51c8f15ac53eecc35c3b2ce4" style="width: 100.0%; height: 100.0%;">안암고대병원</div>`)[0];
+                popup_0360f3efd46bf5c101966ff1878653a4.setContent(html_ff1ecc4f51c8f15ac53eecc35c3b2ce4);
+            
+        
+
+        circle_marker_2abd6c1bd9ae564a17ed0e9e2e8a0226.bindPopup(popup_0360f3efd46bf5c101966ff1878653a4)
+        ;
+
+        
+    
+    
+            var circle_marker_a2b00114a05d413280166c50c8fb0dd6 = L.circleMarker(
+                [37.58556492, 127.0295411],
+                {"bubblingMouseEvents": true, "color": "#f69730", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_98e1a5308c785db7c185e15f7f29c971 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a689297d8b6a6edc2f55bf64269c9a91 = $(`<div id="html_a689297d8b6a6edc2f55bf64269c9a91" style="width: 100.0%; height: 100.0%;">폴라리스 안경원</div>`)[0];
+                popup_98e1a5308c785db7c185e15f7f29c971.setContent(html_a689297d8b6a6edc2f55bf64269c9a91);
+            
+        
+
+        circle_marker_a2b00114a05d413280166c50c8fb0dd6.bindPopup(popup_98e1a5308c785db7c185e15f7f29c971)
+        ;
+
+        
+    
+    
+            var marker_9d5609f4738c72fc96e97845887734bf = L.marker(
+                [37.5861377, 127.0305331],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_aecd3c5544af139280f38d63f4f45366 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71f810b70e687cd044514db473109457 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ed864d5ce8a1822e7b6b61dfaf8dc019 = $(`<div id="html_ed864d5ce8a1822e7b6b61dfaf8dc019" style="width: 100.0%; height: 100.0%;"><b>[Head C4]</b> 미스터국밥</div>`)[0];
+                popup_71f810b70e687cd044514db473109457.setContent(html_ed864d5ce8a1822e7b6b61dfaf8dc019);
+            
+        
+
+        marker_9d5609f4738c72fc96e97845887734bf.bindPopup(popup_71f810b70e687cd044514db473109457)
+        ;
+
+        
+    
+    
+                marker_9d5609f4738c72fc96e97845887734bf.setIcon(icon_aecd3c5544af139280f38d63f4f45366);
+            
+    
+            var poly_line_9015859686b8a1e8afe36f21afce7f82 = L.polyline(
+                [[37.60304528, 127.0134989], [37.60472142, 127.0106113], [37.60569891, 127.0115333], [37.60387937, 127.0153698], [37.60206960307016, 127.0193239470409], [37.60023595, 127.0138834], [37.60073345234299, 127.01250643782338], [37.60253534, 127.0133402], [37.60304528, 127.0134989]],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0067a3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_9015859686b8a1e8afe36f21afce7f82.bindTooltip(
+                `<div>
+                     Cluster 8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_889439468a63860174b895ea701f6902 = L.marker(
+                [37.60304528, 127.0134989],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_680c0cbba802de3d0777749401331876 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eeb9d3f7e1ea344f9a5114aae3f9d12 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cab0b5b8a74d2e902218bb9bdbbb47f5 = $(`<div id="html_cab0b5b8a74d2e902218bb9bdbbb47f5" style="width: 100.0%; height: 100.0%;"><b>[Head C8]</b> 정릉역1번출구</div>`)[0];
+                popup_1eeb9d3f7e1ea344f9a5114aae3f9d12.setContent(html_cab0b5b8a74d2e902218bb9bdbbb47f5);
+            
+        
+
+        marker_889439468a63860174b895ea701f6902.bindPopup(popup_1eeb9d3f7e1ea344f9a5114aae3f9d12)
+        ;
+
+        
+    
+    
+                marker_889439468a63860174b895ea701f6902.setIcon(icon_680c0cbba802de3d0777749401331876);
+            
+    
+            var circle_marker_93ef80ecf4e3d21fdd1d9e628e17eb85 = L.circleMarker(
+                [37.60472142, 127.0106113],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_2607283ae3276f8e9d2fa607b06c2e95 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_529ff71bbd9c5fc8a9ee92ba4c22f316 = $(`<div id="html_529ff71bbd9c5fc8a9ee92ba4c22f316" style="width: 100.0%; height: 100.0%;">정릉2동 주민센터</div>`)[0];
+                popup_2607283ae3276f8e9d2fa607b06c2e95.setContent(html_529ff71bbd9c5fc8a9ee92ba4c22f316);
+            
+        
+
+        circle_marker_93ef80ecf4e3d21fdd1d9e628e17eb85.bindPopup(popup_2607283ae3276f8e9d2fa607b06c2e95)
+        ;
+
+        
+    
+    
+            var circle_marker_3c1dfb02e83ab8c9e66d6c5d10dd92eb = L.circleMarker(
+                [37.60569891, 127.0115333],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_966f5ddf6425641009f7c3f7cd495339 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e7ddfd4113ed3c2742c9e225da648664 = $(`<div id="html_e7ddfd4113ed3c2742c9e225da648664" style="width: 100.0%; height: 100.0%;">정릉우체국</div>`)[0];
+                popup_966f5ddf6425641009f7c3f7cd495339.setContent(html_e7ddfd4113ed3c2742c9e225da648664);
+            
+        
+
+        circle_marker_3c1dfb02e83ab8c9e66d6c5d10dd92eb.bindPopup(popup_966f5ddf6425641009f7c3f7cd495339)
+        ;
+
+        
+    
+    
+            var circle_marker_bac719b22add87e5e402f9782a68d69a = L.circleMarker(
+                [37.60387937, 127.0153698],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_23ceeed36c1b9cefc872f836f4d18b5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1b4f65cc269cbb33360adf939ea7ac8 = $(`<div id="html_a1b4f65cc269cbb33360adf939ea7ac8" style="width: 100.0%; height: 100.0%;">정릉1치안센터</div>`)[0];
+                popup_23ceeed36c1b9cefc872f836f4d18b5a.setContent(html_a1b4f65cc269cbb33360adf939ea7ac8);
+            
+        
+
+        circle_marker_bac719b22add87e5e402f9782a68d69a.bindPopup(popup_23ceeed36c1b9cefc872f836f4d18b5a)
+        ;
+
+        
+    
+    
+            var circle_marker_4b0d4bf4438cf551ce22d2bd735a6c0a = L.circleMarker(
+                [37.60206960307016, 127.0193239470409],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_7095ffcbabf156476715c38ebc8172aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_638175b6f254a502369663a73b7f38e4 = $(`<div id="html_638175b6f254a502369663a73b7f38e4" style="width: 100.0%; height: 100.0%;">김인식내과의원</div>`)[0];
+                popup_7095ffcbabf156476715c38ebc8172aa.setContent(html_638175b6f254a502369663a73b7f38e4);
+            
+        
+
+        circle_marker_4b0d4bf4438cf551ce22d2bd735a6c0a.bindPopup(popup_7095ffcbabf156476715c38ebc8172aa)
+        ;
+
+        
+    
+    
+            var circle_marker_e5b08efe2319be055eddcf9fe135a05f = L.circleMarker(
+                [37.60023595, 127.0138834],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_e14fcb524317629cbc3ec31893067197 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27f0ccf3437c2598a46bfdd2b2a32e44 = $(`<div id="html_27f0ccf3437c2598a46bfdd2b2a32e44" style="width: 100.0%; height: 100.0%;">아리랑시네센터 아리랑인디웨이브</div>`)[0];
+                popup_e14fcb524317629cbc3ec31893067197.setContent(html_27f0ccf3437c2598a46bfdd2b2a32e44);
+            
+        
+
+        circle_marker_e5b08efe2319be055eddcf9fe135a05f.bindPopup(popup_e14fcb524317629cbc3ec31893067197)
+        ;
+
+        
+    
+    
+            var circle_marker_6c9a9d57d330d1170cb0bf9e8abda6bb = L.circleMarker(
+                [37.60073345234299, 127.01250643782338],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_b952eb4eb6a1b1b42e1b55facb0cc066 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a47ed3c9e8fd51e59c4c1032a8470cd = $(`<div id="html_6a47ed3c9e8fd51e59c4c1032a8470cd" style="width: 100.0%; height: 100.0%;">돈암일신건영휴먼빌아파트</div>`)[0];
+                popup_b952eb4eb6a1b1b42e1b55facb0cc066.setContent(html_6a47ed3c9e8fd51e59c4c1032a8470cd);
+            
+        
+
+        circle_marker_6c9a9d57d330d1170cb0bf9e8abda6bb.bindPopup(popup_b952eb4eb6a1b1b42e1b55facb0cc066)
+        ;
+
+        
+    
+    
+            var circle_marker_4933d5f6417a021a10345a99dc78b66b = L.circleMarker(
+                [37.60253534, 127.0133402],
+                {"bubblingMouseEvents": true, "color": "#0067a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_0a3cf899d460d1786c3bac469157acd1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_38c64c87633e478bb62fe571ef44d4c2 = $(`<div id="html_38c64c87633e478bb62fe571ef44d4c2" style="width: 100.0%; height: 100.0%;">뚜레쥬르 아리랑삼거리점</div>`)[0];
+                popup_0a3cf899d460d1786c3bac469157acd1.setContent(html_38c64c87633e478bb62fe571ef44d4c2);
+            
+        
+
+        circle_marker_4933d5f6417a021a10345a99dc78b66b.bindPopup(popup_0a3cf899d460d1786c3bac469157acd1)
+        ;
+
+        
+    
+    
+            var marker_4578ef6eac09de4edad07ca4a06b968c = L.marker(
+                [37.60304528, 127.0134989],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_dbc0536bd365837c87a0d3e62fc29f61 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84e693a448e9c9a553d6ec7ba59cd2bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2ba28c86d31622d2adead807c1a2b8d = $(`<div id="html_d2ba28c86d31622d2adead807c1a2b8d" style="width: 100.0%; height: 100.0%;"><b>[Head C8]</b> 정릉역1번출구</div>`)[0];
+                popup_84e693a448e9c9a553d6ec7ba59cd2bb.setContent(html_d2ba28c86d31622d2adead807c1a2b8d);
+            
+        
+
+        marker_4578ef6eac09de4edad07ca4a06b968c.bindPopup(popup_84e693a448e9c9a553d6ec7ba59cd2bb)
+        ;
+
+        
+    
+    
+                marker_4578ef6eac09de4edad07ca4a06b968c.setIcon(icon_dbc0536bd365837c87a0d3e62fc29f61);
+            
+    
+            var poly_line_54a6c8d870f58ced5c583779950b1164 = L.polyline(
+                [[37.59298479, 127.0171979], [37.59255995612785, 127.01729015005344], [37.59138383053812, 127.01941855970747], [37.59100277, 127.0190595], [37.589358815718086, 127.01670064115751], [37.59060790781504, 127.01428806189784], [37.59153752, 127.0159346], [37.592251975298296, 127.01617250790086], [37.59346742, 127.0161286], [37.59365835, 127.0166722], [37.59517209, 127.0161879], [37.59634616, 127.0156208], [37.5933509, 127.01811012355064], [37.59298479, 127.0171979]],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#d63e2a", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_54a6c8d870f58ced5c583779950b1164.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_94ddedbf429e88274a5879cc4da70e9f = L.marker(
+                [37.59298479, 127.0171979],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_b9f31e671690f37edc10efda76e7967b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_076d5d36292ed4414bca99e23c66d91e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0a503a7962cdee8573b4e301ba3e42fe = $(`<div id="html_0a503a7962cdee8573b4e301ba3e42fe" style="width: 100.0%; height: 100.0%;"><b>[Head C0]</b> 성신여대입구 버스정류장</div>`)[0];
+                popup_076d5d36292ed4414bca99e23c66d91e.setContent(html_0a503a7962cdee8573b4e301ba3e42fe);
+            
+        
+
+        marker_94ddedbf429e88274a5879cc4da70e9f.bindPopup(popup_076d5d36292ed4414bca99e23c66d91e)
+        ;
+
+        
+    
+    
+                marker_94ddedbf429e88274a5879cc4da70e9f.setIcon(icon_b9f31e671690f37edc10efda76e7967b);
+            
+    
+            var circle_marker_adb32b82631b428b588769f93a7609ab = L.circleMarker(
+                [37.59255995612785, 127.01729015005344],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4a51062fa6f14cdb9998d5effbbe34e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef1da1042b9fcc0aeec8164ef36bcc9b = $(`<div id="html_ef1da1042b9fcc0aeec8164ef36bcc9b" style="width: 100.0%; height: 100.0%;">CGV 성신여대입구</div>`)[0];
+                popup_4a51062fa6f14cdb9998d5effbbe34e2.setContent(html_ef1da1042b9fcc0aeec8164ef36bcc9b);
+            
+        
+
+        circle_marker_adb32b82631b428b588769f93a7609ab.bindPopup(popup_4a51062fa6f14cdb9998d5effbbe34e2)
+        ;
+
+        
+    
+    
+            var circle_marker_2c7c4cd029887e7dfa170857a75e9424 = L.circleMarker(
+                [37.59138383053812, 127.01941855970747],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_bc062aefe2d9042d1ce9c4d77a81d6e4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2fa553605e75b6ef94ce88f6caba10cb = $(`<div id="html_2fa553605e75b6ef94ce88f6caba10cb" style="width: 100.0%; height: 100.0%;">포앤시드니 성신여대점</div>`)[0];
+                popup_bc062aefe2d9042d1ce9c4d77a81d6e4.setContent(html_2fa553605e75b6ef94ce88f6caba10cb);
+            
+        
+
+        circle_marker_2c7c4cd029887e7dfa170857a75e9424.bindPopup(popup_bc062aefe2d9042d1ce9c4d77a81d6e4)
+        ;
+
+        
+    
+    
+            var circle_marker_0ebf47f52a2229c012739422d06ed7a8 = L.circleMarker(
+                [37.59100277, 127.0190595],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4b91ad13da9044e63e95bdd4264888f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_97fd04ffe84c90e5518bc00bc4423108 = $(`<div id="html_97fd04ffe84c90e5518bc00bc4423108" style="width: 100.0%; height: 100.0%;">커스텀요거트</div>`)[0];
+                popup_4b91ad13da9044e63e95bdd4264888f3.setContent(html_97fd04ffe84c90e5518bc00bc4423108);
+            
+        
+
+        circle_marker_0ebf47f52a2229c012739422d06ed7a8.bindPopup(popup_4b91ad13da9044e63e95bdd4264888f3)
+        ;
+
+        
+    
+    
+            var circle_marker_8d3138422adf5b0330a16b2c2c0bfee6 = L.circleMarker(
+                [37.589358815718086, 127.01670064115751],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_d6ae72f7a5fb1bc67e66c09389f5cdf8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1e2148145b57fab8eef3b8b38db5cb7 = $(`<div id="html_d1e2148145b57fab8eef3b8b38db5cb7" style="width: 100.0%; height: 100.0%;">성북구청</div>`)[0];
+                popup_d6ae72f7a5fb1bc67e66c09389f5cdf8.setContent(html_d1e2148145b57fab8eef3b8b38db5cb7);
+            
+        
+
+        circle_marker_8d3138422adf5b0330a16b2c2c0bfee6.bindPopup(popup_d6ae72f7a5fb1bc67e66c09389f5cdf8)
+        ;
+
+        
+    
+    
+            var circle_marker_75b68d2e098be657f4308f9b48eb1a67 = L.circleMarker(
+                [37.59060790781504, 127.01428806189784],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_59f2b00f245bad23ff780274b80edf63 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8d4f1188f3b50757db2ffa81859b039 = $(`<div id="html_a8d4f1188f3b50757db2ffa81859b039" style="width: 100.0%; height: 100.0%;">식자재유통센터</div>`)[0];
+                popup_59f2b00f245bad23ff780274b80edf63.setContent(html_a8d4f1188f3b50757db2ffa81859b039);
+            
+        
+
+        circle_marker_75b68d2e098be657f4308f9b48eb1a67.bindPopup(popup_59f2b00f245bad23ff780274b80edf63)
+        ;
+
+        
+    
+    
+            var circle_marker_6a329433ba37e09cee3804fd02c66032 = L.circleMarker(
+                [37.59153752, 127.0159346],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_45e91ac4e382f4f4cc0c7f359b235b9c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98492e96ff2dcf560689d8d0bf102a6e = $(`<div id="html_98492e96ff2dcf560689d8d0bf102a6e" style="width: 100.0%; height: 100.0%;">돈암시장입구</div>`)[0];
+                popup_45e91ac4e382f4f4cc0c7f359b235b9c.setContent(html_98492e96ff2dcf560689d8d0bf102a6e);
+            
+        
+
+        circle_marker_6a329433ba37e09cee3804fd02c66032.bindPopup(popup_45e91ac4e382f4f4cc0c7f359b235b9c)
+        ;
+
+        
+    
+    
+            var circle_marker_c940c52a1bd826e22ab4cea136e9f1f1 = L.circleMarker(
+                [37.592251975298296, 127.01617250790086],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_32230e291b8e069ff27d2589b364c31c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5799a6421f5eacfa4e39bbdf28a76a04 = $(`<div id="html_5799a6421f5eacfa4e39bbdf28a76a04" style="width: 100.0%; height: 100.0%;">하나은행 돈암금융센터지점</div>`)[0];
+                popup_32230e291b8e069ff27d2589b364c31c.setContent(html_5799a6421f5eacfa4e39bbdf28a76a04);
+            
+        
+
+        circle_marker_c940c52a1bd826e22ab4cea136e9f1f1.bindPopup(popup_32230e291b8e069ff27d2589b364c31c)
+        ;
+
+        
+    
+    
+            var circle_marker_9934fed871c22f53dceb58f74a93436c = L.circleMarker(
+                [37.59346742, 127.0161286],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_74067314f5896191f8a744bb8ef99fba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5aa196b167cfc00e281ddf12d5f5cf9 = $(`<div id="html_b5aa196b167cfc00e281ddf12d5f5cf9" style="width: 100.0%; height: 100.0%;">성신필약국</div>`)[0];
+                popup_74067314f5896191f8a744bb8ef99fba.setContent(html_b5aa196b167cfc00e281ddf12d5f5cf9);
+            
+        
+
+        circle_marker_9934fed871c22f53dceb58f74a93436c.bindPopup(popup_74067314f5896191f8a744bb8ef99fba)
+        ;
+
+        
+    
+    
+            var circle_marker_38b0ee45f0b2f082832e7db7a4b605bc = L.circleMarker(
+                [37.59365835, 127.0166722],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_768b88062a52402d780aa4c71006914e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_192210c177fd3876766d45dd924e344e = $(`<div id="html_192210c177fd3876766d45dd924e344e" style="width: 100.0%; height: 100.0%;">아리랑힐호텔 동대문</div>`)[0];
+                popup_768b88062a52402d780aa4c71006914e.setContent(html_192210c177fd3876766d45dd924e344e);
+            
+        
+
+        circle_marker_38b0ee45f0b2f082832e7db7a4b605bc.bindPopup(popup_768b88062a52402d780aa4c71006914e)
+        ;
+
+        
+    
+    
+            var circle_marker_8984b54e0554bbd480345e8d431cb5e9 = L.circleMarker(
+                [37.59517209, 127.0161879],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_d24d6d5cc7c9b22a9f2eac5c36dc90db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_38d58363ee1ffbb2c5414a6014b21473 = $(`<div id="html_38d58363ee1ffbb2c5414a6014b21473" style="width: 100.0%; height: 100.0%;">제일한의원</div>`)[0];
+                popup_d24d6d5cc7c9b22a9f2eac5c36dc90db.setContent(html_38d58363ee1ffbb2c5414a6014b21473);
+            
+        
+
+        circle_marker_8984b54e0554bbd480345e8d431cb5e9.bindPopup(popup_d24d6d5cc7c9b22a9f2eac5c36dc90db)
+        ;
+
+        
+    
+    
+            var circle_marker_dd6a3a5e22d7c2d718f3390698548e3e = L.circleMarker(
+                [37.59634616, 127.0156208],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_5c8c5e9207b6556ace087a22ba9aa74a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63c0e98cf908fda10296ccda1106db94 = $(`<div id="html_63c0e98cf908fda10296ccda1106db94" style="width: 100.0%; height: 100.0%;">그리다</div>`)[0];
+                popup_5c8c5e9207b6556ace087a22ba9aa74a.setContent(html_63c0e98cf908fda10296ccda1106db94);
+            
+        
+
+        circle_marker_dd6a3a5e22d7c2d718f3390698548e3e.bindPopup(popup_5c8c5e9207b6556ace087a22ba9aa74a)
+        ;
+
+        
+    
+    
+            var circle_marker_4ed597fc97b4698142fd8b5f8eb543c8 = L.circleMarker(
+                [37.5933509, 127.01811012355064],
+                {"bubblingMouseEvents": true, "color": "#d63e2a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_ea39b4c0f5cbb739372d48291362d837 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d4d4b6084818c7174265800ea30c82f = $(`<div id="html_1d4d4b6084818c7174265800ea30c82f" style="width: 100.0%; height: 100.0%;">올리브영 돈암중앙점</div>`)[0];
+                popup_ea39b4c0f5cbb739372d48291362d837.setContent(html_1d4d4b6084818c7174265800ea30c82f);
+            
+        
+
+        circle_marker_4ed597fc97b4698142fd8b5f8eb543c8.bindPopup(popup_ea39b4c0f5cbb739372d48291362d837)
+        ;
+
+        
+    
+    
+            var marker_a75fa5ef78b9c8841b3208fa462dd7d2 = L.marker(
+                [37.59298479, 127.0171979],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_2ea347c8798d832bba04ab7ed2a19c85 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc26c149bc19dd279ca64061a15d1d28 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1044cf27f2aa87592173e06a5a37e993 = $(`<div id="html_1044cf27f2aa87592173e06a5a37e993" style="width: 100.0%; height: 100.0%;"><b>[Head C0]</b> 성신여대입구 버스정류장</div>`)[0];
+                popup_cc26c149bc19dd279ca64061a15d1d28.setContent(html_1044cf27f2aa87592173e06a5a37e993);
+            
+        
+
+        marker_a75fa5ef78b9c8841b3208fa462dd7d2.bindPopup(popup_cc26c149bc19dd279ca64061a15d1d28)
+        ;
+
+        
+    
+    
+                marker_a75fa5ef78b9c8841b3208fa462dd7d2.setIcon(icon_2ea347c8798d832bba04ab7ed2a19c85);
+            
+    
+            var poly_line_bf45cd50dfca65df63c6ba525c01abb9 = L.polyline(
+                [[37.60473097082578, 127.02496551731122], [37.60443080651307, 127.02559394075251], [37.60415235768122, 127.02579089531022], [37.60388117300246, 127.02572964847349], [37.60340081, 127.026341], [37.60188115, 127.0244669], [37.59903074, 127.0233137], [37.60326171, 127.0237268], [37.60475388712334, 127.02304030873772], [37.60586232567396, 127.02187984125509], [37.60928984, 127.0210337], [37.60806403, 127.0235227], [37.60761043, 127.0293392], [37.609734231947066, 127.03214306213049], [37.60593851, 127.0316103], [37.60473097082578, 127.02496551731122]],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#72b026", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_bf45cd50dfca65df63c6ba525c01abb9.bindTooltip(
+                `<div>
+                     Cluster 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_eb1db94ef63441cec0c609412eea86c3 = L.marker(
+                [37.60473097082578, 127.02496551731122],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_a49064030ec157b28c6dcd93eceb628d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_443addbc7f3af6141f51fa315ba0da2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44a81509cb9677cd33536ef9e117f141 = $(`<div id="html_44a81509cb9677cd33536ef9e117f141" style="width: 100.0%; height: 100.0%;"><b>[Head C2]</b> 프린트카페 길음점</div>`)[0];
+                popup_443addbc7f3af6141f51fa315ba0da2b.setContent(html_44a81509cb9677cd33536ef9e117f141);
+            
+        
+
+        marker_eb1db94ef63441cec0c609412eea86c3.bindPopup(popup_443addbc7f3af6141f51fa315ba0da2b)
+        ;
+
+        
+    
+    
+                marker_eb1db94ef63441cec0c609412eea86c3.setIcon(icon_a49064030ec157b28c6dcd93eceb628d);
+            
+    
+            var circle_marker_69bab2b1dfef514b00edba34882ef181 = L.circleMarker(
+                [37.60443080651307, 127.02559394075251],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_8e4686e3f09623dc8c87704a15417f4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b7ffd85d37f9e88cc10909cee290843d = $(`<div id="html_b7ffd85d37f9e88cc10909cee290843d" style="width: 100.0%; height: 100.0%;">길음역 4호선 10번출구</div>`)[0];
+                popup_8e4686e3f09623dc8c87704a15417f4e.setContent(html_b7ffd85d37f9e88cc10909cee290843d);
+            
+        
+
+        circle_marker_69bab2b1dfef514b00edba34882ef181.bindPopup(popup_8e4686e3f09623dc8c87704a15417f4e)
+        ;
+
+        
+    
+    
+            var circle_marker_c7480357b897f753859afde6428d1d0d = L.circleMarker(
+                [37.60415235768122, 127.02579089531022],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_da8edae1193daf5b1cda0c26a0018a5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5295290d03746190ddcd91c2d339ac7 = $(`<div id="html_b5295290d03746190ddcd91c2d339ac7" style="width: 100.0%; height: 100.0%;">한중인력개발</div>`)[0];
+                popup_da8edae1193daf5b1cda0c26a0018a5f.setContent(html_b5295290d03746190ddcd91c2d339ac7);
+            
+        
+
+        circle_marker_c7480357b897f753859afde6428d1d0d.bindPopup(popup_da8edae1193daf5b1cda0c26a0018a5f)
+        ;
+
+        
+    
+    
+            var circle_marker_93e391cbcd963c4dc1f58809aa701224 = L.circleMarker(
+                [37.60388117300246, 127.02572964847349],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4bdcb7bd60d1100e7bcdbf50efc343dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4aa530482ab89c5d8b37ef727e5146bc = $(`<div id="html_4aa530482ab89c5d8b37ef727e5146bc" style="width: 100.0%; height: 100.0%;">갈비명가이상 길음신관</div>`)[0];
+                popup_4bdcb7bd60d1100e7bcdbf50efc343dd.setContent(html_4aa530482ab89c5d8b37ef727e5146bc);
+            
+        
+
+        circle_marker_93e391cbcd963c4dc1f58809aa701224.bindPopup(popup_4bdcb7bd60d1100e7bcdbf50efc343dd)
+        ;
+
+        
+    
+    
+            var circle_marker_73c12b70fa8f06925f4e03aa22f7013a = L.circleMarker(
+                [37.60340081, 127.026341],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4956034aecd6d04fbf15e309aeabf17c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98d2db1331df3ebc1962f3e9394c2f1b = $(`<div id="html_98d2db1331df3ebc1962f3e9394c2f1b" style="width: 100.0%; height: 100.0%;">돈암1동주민센터</div>`)[0];
+                popup_4956034aecd6d04fbf15e309aeabf17c.setContent(html_98d2db1331df3ebc1962f3e9394c2f1b);
+            
+        
+
+        circle_marker_73c12b70fa8f06925f4e03aa22f7013a.bindPopup(popup_4956034aecd6d04fbf15e309aeabf17c)
+        ;
+
+        
+    
+    
+            var circle_marker_3daa6ade881c8a6e92aef6f22e87fd6a = L.circleMarker(
+                [37.60188115, 127.0244669],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_461c6945c64546558f4e8d3097fb8c18 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01be69ddc845609471251822b37ac38f = $(`<div id="html_01be69ddc845609471251822b37ac38f" style="width: 100.0%; height: 100.0%;">길음역 공항버스정류장</div>`)[0];
+                popup_461c6945c64546558f4e8d3097fb8c18.setContent(html_01be69ddc845609471251822b37ac38f);
+            
+        
+
+        circle_marker_3daa6ade881c8a6e92aef6f22e87fd6a.bindPopup(popup_461c6945c64546558f4e8d3097fb8c18)
+        ;
+
+        
+    
+    
+            var circle_marker_78c6faa36641ac659bc0a577b3c7a966 = L.circleMarker(
+                [37.59903074, 127.0233137],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_1f7e621fb6a905a4faec259d696c215b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b9837a6b40d5cabf0eaafdc5b8ca247 = $(`<div id="html_7b9837a6b40d5cabf0eaafdc5b8ca247" style="width: 100.0%; height: 100.0%;">돈암삼성아파트</div>`)[0];
+                popup_1f7e621fb6a905a4faec259d696c215b.setContent(html_7b9837a6b40d5cabf0eaafdc5b8ca247);
+            
+        
+
+        circle_marker_78c6faa36641ac659bc0a577b3c7a966.bindPopup(popup_1f7e621fb6a905a4faec259d696c215b)
+        ;
+
+        
+    
+    
+            var circle_marker_334c5227697b76317072a86c340a9762 = L.circleMarker(
+                [37.60326171, 127.0237268],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_a1006b23fd199c512f18e59077b92d2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9138425dd5be909177e66d16f4fbbd3f = $(`<div id="html_9138425dd5be909177e66d16f4fbbd3f" style="width: 100.0%; height: 100.0%;">길음뉴타운 버스정류장</div>`)[0];
+                popup_a1006b23fd199c512f18e59077b92d2d.setContent(html_9138425dd5be909177e66d16f4fbbd3f);
+            
+        
+
+        circle_marker_334c5227697b76317072a86c340a9762.bindPopup(popup_a1006b23fd199c512f18e59077b92d2d)
+        ;
+
+        
+    
+    
+            var circle_marker_44c763bc46d56699e1c9d2d2c1a7ef38 = L.circleMarker(
+                [37.60475388712334, 127.02304030873772],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_23d5d02d88f326142c3ddb82db0dd13e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df2188a1a9ce40de1418c0f49b69e385 = $(`<div id="html_df2188a1a9ce40de1418c0f49b69e385" style="width: 100.0%; height: 100.0%;">성북제일새마을금고 본점</div>`)[0];
+                popup_23d5d02d88f326142c3ddb82db0dd13e.setContent(html_df2188a1a9ce40de1418c0f49b69e385);
+            
+        
+
+        circle_marker_44c763bc46d56699e1c9d2d2c1a7ef38.bindPopup(popup_23d5d02d88f326142c3ddb82db0dd13e)
+        ;
+
+        
+    
+    
+            var circle_marker_9fc5c9a175f4bf18d6aa5567a796c050 = L.circleMarker(
+                [37.60586232567396, 127.02187984125509],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_b1c1d2329962dcbde2dfcb48fc76d841 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29e4c51f64c2de16e64e126342a32f0d = $(`<div id="html_29e4c51f64c2de16e64e126342a32f0d" style="width: 100.0%; height: 100.0%;">GS더프레시 길음뉴타운점</div>`)[0];
+                popup_b1c1d2329962dcbde2dfcb48fc76d841.setContent(html_29e4c51f64c2de16e64e126342a32f0d);
+            
+        
+
+        circle_marker_9fc5c9a175f4bf18d6aa5567a796c050.bindPopup(popup_b1c1d2329962dcbde2dfcb48fc76d841)
+        ;
+
+        
+    
+    
+            var circle_marker_2b97a0f9d558e219fcc004394f89db88 = L.circleMarker(
+                [37.60928984, 127.0210337],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_ab6fe77f7b8eb20b6b0c68d67de48771 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62fe2204e74465dcda9912d9e5d388fa = $(`<div id="html_62fe2204e74465dcda9912d9e5d388fa" style="width: 100.0%; height: 100.0%;">길음중앙새마을금고 본점</div>`)[0];
+                popup_ab6fe77f7b8eb20b6b0c68d67de48771.setContent(html_62fe2204e74465dcda9912d9e5d388fa);
+            
+        
+
+        circle_marker_2b97a0f9d558e219fcc004394f89db88.bindPopup(popup_ab6fe77f7b8eb20b6b0c68d67de48771)
+        ;
+
+        
+    
+    
+            var circle_marker_a07041cea6b1f2f7e45e82ea22d3dda5 = L.circleMarker(
+                [37.60806403, 127.0235227],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_caefb0a96593afce6608b087ed5ed0c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a586ac03dc60c37f690f3cf61ce5019b = $(`<div id="html_a586ac03dc60c37f690f3cf61ce5019b" style="width: 100.0%; height: 100.0%;">가화회센터</div>`)[0];
+                popup_caefb0a96593afce6608b087ed5ed0c9.setContent(html_a586ac03dc60c37f690f3cf61ce5019b);
+            
+        
+
+        circle_marker_a07041cea6b1f2f7e45e82ea22d3dda5.bindPopup(popup_caefb0a96593afce6608b087ed5ed0c9)
+        ;
+
+        
+    
+    
+            var circle_marker_2b4ca1e739c1cab097837bf183c13348 = L.circleMarker(
+                [37.60761043, 127.0293392],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_912fe50bbc7fbc67fc3d00524f4d1899 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2bf4ba2672392d816aef13cbc47299d6 = $(`<div id="html_2bf4ba2672392d816aef13cbc47299d6" style="width: 100.0%; height: 100.0%;">이철헤어커커 길음뉴타운점</div>`)[0];
+                popup_912fe50bbc7fbc67fc3d00524f4d1899.setContent(html_2bf4ba2672392d816aef13cbc47299d6);
+            
+        
+
+        circle_marker_2b4ca1e739c1cab097837bf183c13348.bindPopup(popup_912fe50bbc7fbc67fc3d00524f4d1899)
+        ;
+
+        
+    
+    
+            var circle_marker_99ecc4927bf5dd4a77411283bca0500a = L.circleMarker(
+                [37.609734231947066, 127.03214306213049],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_c5e668cfefede3128eae92481c6a4138 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5de788a4182c106c012e26da2fac85c7 = $(`<div id="html_5de788a4182c106c012e26da2fac85c7" style="width: 100.0%; height: 100.0%;">봄꽃뷰티</div>`)[0];
+                popup_c5e668cfefede3128eae92481c6a4138.setContent(html_5de788a4182c106c012e26da2fac85c7);
+            
+        
+
+        circle_marker_99ecc4927bf5dd4a77411283bca0500a.bindPopup(popup_c5e668cfefede3128eae92481c6a4138)
+        ;
+
+        
+    
+    
+            var circle_marker_e1a9c1598eb1095e7392b52d6ee90465 = L.circleMarker(
+                [37.60593851, 127.0316103],
+                {"bubblingMouseEvents": true, "color": "#72b026", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4a9abbffd0187fd70cd1b5bef86ec5ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a28694bc3d156549092b1c418a15bb73 = $(`<div id="html_a28694bc3d156549092b1c418a15bb73" style="width: 100.0%; height: 100.0%;">리안헤어 종암하월곡점</div>`)[0];
+                popup_4a9abbffd0187fd70cd1b5bef86ec5ad.setContent(html_a28694bc3d156549092b1c418a15bb73);
+            
+        
+
+        circle_marker_e1a9c1598eb1095e7392b52d6ee90465.bindPopup(popup_4a9abbffd0187fd70cd1b5bef86ec5ad)
+        ;
+
+        
+    
+    
+            var marker_a0e863bd71f30349f89d97ebd4d157f0 = L.marker(
+                [37.60473097082578, 127.02496551731122],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_b4c59782a08603123ab0b852772749be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_55ddfe8309d6a26a79b45775f070f8e4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5dc9fc2800ea2bba7ac73bbc6f955a8 = $(`<div id="html_e5dc9fc2800ea2bba7ac73bbc6f955a8" style="width: 100.0%; height: 100.0%;"><b>[Head C2]</b> 프린트카페 길음점</div>`)[0];
+                popup_55ddfe8309d6a26a79b45775f070f8e4.setContent(html_e5dc9fc2800ea2bba7ac73bbc6f955a8);
+            
+        
+
+        marker_a0e863bd71f30349f89d97ebd4d157f0.bindPopup(popup_55ddfe8309d6a26a79b45775f070f8e4)
+        ;
+
+        
+    
+    
+                marker_a0e863bd71f30349f89d97ebd4d157f0.setIcon(icon_b4c59782a08603123ab0b852772749be);
+            
+    
+            var poly_line_0d57e7283b6c54fb0e31ef2821a77224 = L.polyline(
+                [[37.60094426854279, 127.03497826295788], [37.5993633, 127.0340399], [37.59819621, 127.035097], [37.5949591, 127.0345769], [37.59424141, 127.03625351554156], [37.60118225, 127.0375331], [37.6025146, 127.0408904], [37.60160616, 127.0415829], [37.60420073, 127.0448187], [37.6040329, 127.0377973], [37.60440848706269, 127.03527885831645], [37.61146768298014, 127.03547020124066], [37.604713247072375, 127.0312847470574], [37.60202348733786, 127.0324103972117], [37.60143235, 127.0327227], [37.60120225044994, 127.03395580281564], [37.60094426854279, 127.03497826295788]],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#728224", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_0d57e7283b6c54fb0e31ef2821a77224.bindTooltip(
+                `<div>
+                     Cluster 9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0d8e133e462dcd98c3aff969439c4c12 = L.marker(
+                [37.60094426854279, 127.03497826295788],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_72cdf47e35221297b88a2ce87d6e7aaa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8c23458cb39c7a6e08c85b75cc3e85e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6bf13476b02e31cc4e163f2a6681da4 = $(`<div id="html_b6bf13476b02e31cc4e163f2a6681da4" style="width: 100.0%; height: 100.0%;"><b>[Head C9]</b> CU 종암SK2차점</div>`)[0];
+                popup_f8c23458cb39c7a6e08c85b75cc3e85e.setContent(html_b6bf13476b02e31cc4e163f2a6681da4);
+            
+        
+
+        marker_0d8e133e462dcd98c3aff969439c4c12.bindPopup(popup_f8c23458cb39c7a6e08c85b75cc3e85e)
+        ;
+
+        
+    
+    
+                marker_0d8e133e462dcd98c3aff969439c4c12.setIcon(icon_72cdf47e35221297b88a2ce87d6e7aaa);
+            
+    
+            var circle_marker_4561f53d12d0ec09b7443fbbf7b9594c = L.circleMarker(
+                [37.5993633, 127.0340399],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_f2e70a0986c5aef23f8459defff6d8ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb87dc96f420876ce0f606bfa96ad757 = $(`<div id="html_fb87dc96f420876ce0f606bfa96ad757" style="width: 100.0%; height: 100.0%;">투썸플레이스 종암점</div>`)[0];
+                popup_f2e70a0986c5aef23f8459defff6d8ac.setContent(html_fb87dc96f420876ce0f606bfa96ad757);
+            
+        
+
+        circle_marker_4561f53d12d0ec09b7443fbbf7b9594c.bindPopup(popup_f2e70a0986c5aef23f8459defff6d8ac)
+        ;
+
+        
+    
+    
+            var circle_marker_32af1883f8ee4c4c8940baed5c38ea99 = L.circleMarker(
+                [37.59819621, 127.035097],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_39f26c52bf355a9bce851ec61192cfce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e81b2efb3c8c8aff6b21bf2ba0a7b74 = $(`<div id="html_8e81b2efb3c8c8aff6b21bf2ba0a7b74" style="width: 100.0%; height: 100.0%;">행복한세탁소</div>`)[0];
+                popup_39f26c52bf355a9bce851ec61192cfce.setContent(html_8e81b2efb3c8c8aff6b21bf2ba0a7b74);
+            
+        
+
+        circle_marker_32af1883f8ee4c4c8940baed5c38ea99.bindPopup(popup_39f26c52bf355a9bce851ec61192cfce)
+        ;
+
+        
+    
+    
+            var circle_marker_cbe327ad2c283aef74de4cff414b3456 = L.circleMarker(
+                [37.5949591, 127.0345769],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_42b89696cfe6f7a06389375e49aab142 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5458b9e275eead888c5be9d85e667c3 = $(`<div id="html_e5458b9e275eead888c5be9d85e667c3" style="width: 100.0%; height: 100.0%;">숭례초교</div>`)[0];
+                popup_42b89696cfe6f7a06389375e49aab142.setContent(html_e5458b9e275eead888c5be9d85e667c3);
+            
+        
+
+        circle_marker_cbe327ad2c283aef74de4cff414b3456.bindPopup(popup_42b89696cfe6f7a06389375e49aab142)
+        ;
+
+        
+    
+    
+            var circle_marker_4a1b9607441137cf08701e56549583e1 = L.circleMarker(
+                [37.59424141, 127.03625351554156],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_3f5bf62294ecd66bfefb1bd8f3d91521 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_090ea6a19b66523dfc0dc6e71070192a = $(`<div id="html_090ea6a19b66523dfc0dc6e71070192a" style="width: 100.0%; height: 100.0%;">KB국민은행 종암동종합금융센터</div>`)[0];
+                popup_3f5bf62294ecd66bfefb1bd8f3d91521.setContent(html_090ea6a19b66523dfc0dc6e71070192a);
+            
+        
+
+        circle_marker_4a1b9607441137cf08701e56549583e1.bindPopup(popup_3f5bf62294ecd66bfefb1bd8f3d91521)
+        ;
+
+        
+    
+    
+            var circle_marker_6fd8b339fc883d4af378fc629443ee39 = L.circleMarker(
+                [37.60118225, 127.0375331],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_20c6f9c4c068d976b974522bfc5d42df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73a3618c0f7df0a44c8b77a738e52055 = $(`<div id="html_73a3618c0f7df0a44c8b77a738e52055" style="width: 100.0%; height: 100.0%;">종암SK아파트</div>`)[0];
+                popup_20c6f9c4c068d976b974522bfc5d42df.setContent(html_73a3618c0f7df0a44c8b77a738e52055);
+            
+        
+
+        circle_marker_6fd8b339fc883d4af378fc629443ee39.bindPopup(popup_20c6f9c4c068d976b974522bfc5d42df)
+        ;
+
+        
+    
+    
+            var circle_marker_401b6eab3add7d1662ab9a2ef221af59 = L.circleMarker(
+                [37.6025146, 127.0408904],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_3f2c53b2b0a7df734c64eff024e210f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52d6725378aa533d302a239188a60f42 = $(`<div id="html_52d6725378aa533d302a239188a60f42" style="width: 100.0%; height: 100.0%;">이마트24 뉴월곡역점</div>`)[0];
+                popup_3f2c53b2b0a7df734c64eff024e210f3.setContent(html_52d6725378aa533d302a239188a60f42);
+            
+        
+
+        circle_marker_401b6eab3add7d1662ab9a2ef221af59.bindPopup(popup_3f2c53b2b0a7df734c64eff024e210f3)
+        ;
+
+        
+    
+    
+            var circle_marker_3754b8f7aee77ed41db82a47e62328c7 = L.circleMarker(
+                [37.60160616, 127.0415829],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_680281543505d14e59b7d3de910284cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cfa5614d8ba202f618a9be9af7a6e25 = $(`<div id="html_3cfa5614d8ba202f618a9be9af7a6e25" style="width: 100.0%; height: 100.0%;">강경불고기 성북월곡점</div>`)[0];
+                popup_680281543505d14e59b7d3de910284cf.setContent(html_3cfa5614d8ba202f618a9be9af7a6e25);
+            
+        
+
+        circle_marker_3754b8f7aee77ed41db82a47e62328c7.bindPopup(popup_680281543505d14e59b7d3de910284cf)
+        ;
+
+        
+    
+    
+            var circle_marker_e4bede3f66c1f377f7b67249c931bce9 = L.circleMarker(
+                [37.60420073, 127.0448187],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_4469fcbe89daeb37d8ee2f1eaaf2acc4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9be5ac55105ea976f46508e509b17693 = $(`<div id="html_9be5ac55105ea976f46508e509b17693" style="width: 100.0%; height: 100.0%;">바람소리색소폰드럼동호회</div>`)[0];
+                popup_4469fcbe89daeb37d8ee2f1eaaf2acc4.setContent(html_9be5ac55105ea976f46508e509b17693);
+            
+        
+
+        circle_marker_e4bede3f66c1f377f7b67249c931bce9.bindPopup(popup_4469fcbe89daeb37d8ee2f1eaaf2acc4)
+        ;
+
+        
+    
+    
+            var circle_marker_50f4e98b92b31401b17194abfc1ba617 = L.circleMarker(
+                [37.6040329, 127.0377973],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_fcfef9c7f9e6761b0ca1a11dc39b12dc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aaf6816a67ca891dc9d75081536973d9 = $(`<div id="html_aaf6816a67ca891dc9d75081536973d9" style="width: 100.0%; height: 100.0%;">김가풍정형외과의원</div>`)[0];
+                popup_fcfef9c7f9e6761b0ca1a11dc39b12dc.setContent(html_aaf6816a67ca891dc9d75081536973d9);
+            
+        
+
+        circle_marker_50f4e98b92b31401b17194abfc1ba617.bindPopup(popup_fcfef9c7f9e6761b0ca1a11dc39b12dc)
+        ;
+
+        
+    
+    
+            var circle_marker_50ad02be0be9bb7f113610e633839f55 = L.circleMarker(
+                [37.60440848706269, 127.03527885831645],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_f65112e125f5783c7b3d35391a9b319a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4855ebea2f72f631475e5f78ab873847 = $(`<div id="html_4855ebea2f72f631475e5f78ab873847" style="width: 100.0%; height: 100.0%;">동신아파트</div>`)[0];
+                popup_f65112e125f5783c7b3d35391a9b319a.setContent(html_4855ebea2f72f631475e5f78ab873847);
+            
+        
+
+        circle_marker_50ad02be0be9bb7f113610e633839f55.bindPopup(popup_f65112e125f5783c7b3d35391a9b319a)
+        ;
+
+        
+    
+    
+            var circle_marker_7d25ddffbcb0cc7cfe394e1a6a1f8b03 = L.circleMarker(
+                [37.61146768298014, 127.03547020124066],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_224c7cd6d13cd51951f739806ce68fae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00d0b567a57315d8994665b5bdcf6e8b = $(`<div id="html_00d0b567a57315d8994665b5bdcf6e8b" style="width: 100.0%; height: 100.0%;">GS25 월곡사거리점</div>`)[0];
+                popup_224c7cd6d13cd51951f739806ce68fae.setContent(html_00d0b567a57315d8994665b5bdcf6e8b);
+            
+        
+
+        circle_marker_7d25ddffbcb0cc7cfe394e1a6a1f8b03.bindPopup(popup_224c7cd6d13cd51951f739806ce68fae)
+        ;
+
+        
+    
+    
+            var circle_marker_d1d8d1b4edd17139a906d9365672f0bd = L.circleMarker(
+                [37.604713247072375, 127.0312847470574],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_ce35cc26aca8fd499f7ca84739c902d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5937053e21d4ac9410d2796e1c01a2f = $(`<div id="html_c5937053e21d4ac9410d2796e1c01a2f" style="width: 100.0%; height: 100.0%;">이마트 하월곡점</div>`)[0];
+                popup_ce35cc26aca8fd499f7ca84739c902d3.setContent(html_c5937053e21d4ac9410d2796e1c01a2f);
+            
+        
+
+        circle_marker_d1d8d1b4edd17139a906d9365672f0bd.bindPopup(popup_ce35cc26aca8fd499f7ca84739c902d3)
+        ;
+
+        
+    
+    
+            var circle_marker_cd0002a149d06b9c982c56e52407a52f = L.circleMarker(
+                [37.60202348733786, 127.0324103972117],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_2348913f1b1dabe431921f94c1066d21 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_46abae8d01ef339068d7aa41949cf063 = $(`<div id="html_46abae8d01ef339068d7aa41949cf063" style="width: 100.0%; height: 100.0%;">서울종암경찰서</div>`)[0];
+                popup_2348913f1b1dabe431921f94c1066d21.setContent(html_46abae8d01ef339068d7aa41949cf063);
+            
+        
+
+        circle_marker_cd0002a149d06b9c982c56e52407a52f.bindPopup(popup_2348913f1b1dabe431921f94c1066d21)
+        ;
+
+        
+    
+    
+            var circle_marker_3cbe062997e488e00eade8fea31a32cc = L.circleMarker(
+                [37.60143235, 127.0327227],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_27d941903e3637a171108ce9e116ddae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c65a1ac7d0aeb0821ca6bf360e4b80e = $(`<div id="html_3c65a1ac7d0aeb0821ca6bf360e4b80e" style="width: 100.0%; height: 100.0%;">한마음한방병원</div>`)[0];
+                popup_27d941903e3637a171108ce9e116ddae.setContent(html_3c65a1ac7d0aeb0821ca6bf360e4b80e);
+            
+        
+
+        circle_marker_3cbe062997e488e00eade8fea31a32cc.bindPopup(popup_27d941903e3637a171108ce9e116ddae)
+        ;
+
+        
+    
+    
+            var circle_marker_f83a472446e79dcc0739719fbcc4c71d = L.circleMarker(
+                [37.60120225044994, 127.03395580281564],
+                {"bubblingMouseEvents": true, "color": "#728224", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+        var popup_f7bf6502acf09de86d2cea3e7989ccb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4fb00a1f4322e490ee86edd084d37e2 = $(`<div id="html_c4fb00a1f4322e490ee86edd084d37e2" style="width: 100.0%; height: 100.0%;">새종암새마을금고 제1지점</div>`)[0];
+                popup_f7bf6502acf09de86d2cea3e7989ccb4.setContent(html_c4fb00a1f4322e490ee86edd084d37e2);
+            
+        
+
+        circle_marker_f83a472446e79dcc0739719fbcc4c71d.bindPopup(popup_f7bf6502acf09de86d2cea3e7989ccb4)
+        ;
+
+        
+    
+    
+            var marker_a4127dfa4b10ecbdf63574b6c1f0b6fc = L.marker(
+                [37.60094426854279, 127.03497826295788],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            var icon_a724319c1352f0a6b5742a6a3f03c983 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_82d08f7384a6f28f89426237ed6039ab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f369ded626d023b9b14f0dec101fb6fa = $(`<div id="html_f369ded626d023b9b14f0dec101fb6fa" style="width: 100.0%; height: 100.0%;"><b>[Head C9]</b> CU 종암SK2차점</div>`)[0];
+                popup_82d08f7384a6f28f89426237ed6039ab.setContent(html_f369ded626d023b9b14f0dec101fb6fa);
+            
+        
+
+        marker_a4127dfa4b10ecbdf63574b6c1f0b6fc.bindPopup(popup_82d08f7384a6f28f89426237ed6039ab)
+        ;
+
+        
+    
+    
+                marker_a4127dfa4b10ecbdf63574b6c1f0b6fc.setIcon(icon_a724319c1352f0a6b5742a6a3f03c983);
+            
+    
+            var poly_line_d0a5938116fcb563914202c412295489 = L.polyline(
+                [[37.59298479, 127.0171979], [37.58971305, 127.0057496], [37.61204694, 127.0003307], [37.60304528, 127.0134989], [37.60473097082578, 127.02496551731122], [37.61363147041428, 127.04912150127144], [37.61124009, 127.0627482], [37.60094426854279, 127.03497826295788], [37.5861377, 127.0305331], [37.58257453066624, 127.0211258089404], [37.59298479, 127.0171979]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": "10, 15", "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_5e894d7e3b8fe06f320e4de3051bc6fb);
+        
+    
+            poly_line_d0a5938116fcb563914202c412295489.bindTooltip(
+                `<div>
+                     Global Head Path (Dashed)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
