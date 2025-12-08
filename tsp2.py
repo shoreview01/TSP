@@ -1,11 +1,11 @@
 import numpy as np
 import time
 import matplotlib.pyplot as plt
-from methods.original import TSPMaxSum
-from methods.hypercube import TSPHC1
-from methods.hypercube2 import TSPHC2
-from methods.hypercube3 import TSPHC3
-from methods.brute_force import TSP_brute_force
+from dummy_methods.original import TSPMaxSum
+from dummy_methods.hypercube import TSPHC1
+from dummy_methods.hypercube2 import TSPHC2
+from dummy_methods.hypercube3 import TSPHC3
+from dummy_methods.brute_force import TSP_brute_force
 
 # Example usage
 s1 = np.array([

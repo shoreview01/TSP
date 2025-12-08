@@ -1,9 +1,9 @@
 import numpy as np
 import time
 import matplotlib.pyplot as plt
-from methods.hypercube3 import TSPHC3
-from methods.hypercube2 import TSPHC2
-from methods.viterbi import TSPBitmask
+from dummy_methods.hypercube3 import TSPHC3
+from dummy_methods.hypercube2 import TSPHC2
+from dummy_methods.viterbi import TSPBitmask
 
 s = np.array([
     [0.8, 10.1, 12.5, 0.1, 0.6],

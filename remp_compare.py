@@ -6,7 +6,7 @@ Requires:  numpy, scipy (≥ 1.10 for linear_sum_assignment).
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
-from methods.hypercube3 import TSPHC3
+from dummy_methods.hypercube3 import TSPHC3
 
 np.set_printoptions(precision=3, suppress=True)
 

@@ -1,5 +1,5 @@
 import numpy as np
-from methods.original import TSPMaxSum as OriginalTSPMaxSum
+from dummy_methods.original import TSPMaxSum as OriginalTSPMaxSum
 
 class TSPMaxSum:
     def __init__(self, s, damp=0.5, t_max=1000, t_conv=5, verbose=False):

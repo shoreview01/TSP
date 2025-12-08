@@ -1,9 +1,9 @@
 import numpy as np
-from methods.original import TSPMaxSum
-from methods.hypercube import TSPHC1
-from methods.hypercube2 import TSPHC2
+from dummy_methods.original import TSPMaxSum
+from dummy_methods.hypercube import TSPHC1
+from dummy_methods.hypercube2 import TSPHC2
 #from methods.hypercube3 import TSPHC3
-from methods.viterbi import TSPBitmask
+from dummy_methods.viterbi import TSPBitmask
 import pandas as pd
 
 np.set_printoptions(precision=3, suppress=True)
